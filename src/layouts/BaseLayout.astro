@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Documentación · Plataforma',
+  description = 'Centro de documentación de la plataforma minayao.site: estructura, inventario y servicios.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="m-0 bg-paper font-sans text-[14px] leading-[1.6] text-ink">
+    <a href="#contenido" class="fixed -top-24 left-4 z-10 bg-white p-3 focus-visible:top-3">Saltar al contenido</a>
+    <slot />
+  </body>
+</html>

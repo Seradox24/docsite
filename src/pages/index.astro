@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Topbar from '../components/Topbar.astro';
+import Hero from '../components/Hero.astro';
+import Metrics from '../components/Metrics.astro';
+import ArchitectureSection from '../components/ArchitectureSection.astro';
+import StatusSection from '../components/StatusSection.astro';
+import PrinciplesSection from '../components/PrinciplesSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout>
+  <Sidebar />
+  <div class="lg:ml-[248px]">
+    <Topbar />
+    <main id="contenido" class="mx-auto max-w-[1320px] px-12 max-lg:px-[30px] max-sm:px-5">
+      <Hero />
+      <Metrics />
+      <ArchitectureSection />
+      <StatusSection />
+      <PrinciplesSection />
+      <ServicesSection />
+      <SiteFooter />
+    </main>
+  </div>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import { nav } from '../data/platform';
+---
+
+<aside
+  class="flex flex-col border-b border-line bg-sidebar px-6 py-9 lg:fixed lg:inset-y-0 lg:left-0 lg:w-[248px] lg:border-b-0 lg:border-r max-lg:px-5 max-lg:py-5"
+>
+  <a class="flex items-center gap-3 text-[19px] font-bold tracking-[-0.5px] max-sm:text-[17px]" href="/">
+    <span
+      class="relative grid h-11 w-[42px] place-content-center rounded-[10px] bg-ink text-[27px] text-white max-sm:h-[38px] max-sm:w-9 max-sm:text-[23px]"
+      >P<span class="absolute bottom-1 right-[5px] text-[#6ed7a7]">·</span></span
+    >
+    <span>
+      Plataforma
+      <small class="block text-[10px] font-medium tracking-normal text-muted">Centro de documentación</small>
+    </span>
+  </a>
+
+  <div class="mx-2.5 mb-3.5 mt-[62px] text-[9px] font-bold tracking-[1.4px] text-[#6a7f76] max-lg:hidden">
+    ESPACIO DE TRABAJO
+  </div>
+
+  <nav
+    aria-label="Secciones"
+    class="grid gap-1.5 max-lg:mt-[18px] max-lg:flex max-lg:flex-wrap max-lg:gap-1 max-sm:mt-4"
+  >
+    {
+      nav.map((item, i) => (
+        <a
+          href={item.href}
+          class:list={[
+            'rounded-md px-2.5 py-3 text-[12px] font-[550] transition-colors max-lg:px-2 max-lg:py-2 max-lg:text-[11px] max-sm:px-[7px] max-sm:text-[10px]',
+            i === 0 ? 'bg-activenav text-[#126248]' : 'hover:bg-[#e0e9e2]',
+          ]}
+        >
+          <span class="mr-2.5 font-mono text-[10px] text-[#73857d] max-lg:hidden">{item.index}</span>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="mt-auto hidden border-t border-[#d1ded5] px-2.5 pt-5 text-[11px] font-semibold lg:block">
+    <span class="status-dot"></span> Documentación disponible
+    <p class="mb-6 mt-1 font-normal leading-[1.7] text-muted">
+      Un lugar para organizar los servicios que vienen.
+    </p>
+    <span class="font-mono text-[9px] tracking-[1px] text-[#6b8078]">BASE INICIAL · V2.0</span>
+  </div>
+</aside>
