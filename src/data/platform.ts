@@ -23,19 +23,17 @@ export interface TreeNode {
 }
 
 export const tree: TreeNode[] = [
-  { branch: '├──', name: 'microservicios/', tag: 'DOCKER', variant: 'folder' },
+  { branch: '├──', name: 'microservicios/', note: 'sin contenedores observados', variant: 'folder' },
   { branch: '├──', name: 'servicios/', tag: 'DOCKER', variant: 'folder' },
-  { branch: '├──', name: 'moodle/', note: 'reservado', variant: 'muted' },
+  { branch: '├──', name: 'moodle/', tag: 'DOCKER', variant: 'folder' },
   { branch: '├──', name: 'documentacion/', tag: 'WEB', tone: 'green', variant: 'folder', highlight: true },
   { branch: '│   ├──', name: 'contenido/', variant: 'child' },
   { branch: '│   ├──', name: 'public/', variant: 'child' },
-  { branch: '│   └──', name: 'docsite-dev/', variant: 'child' },
   { branch: '├──', name: 'infraestructura/' },
   { branch: '├──', name: 'datos/' },
   { branch: '├──', name: 'secretos/' },
   { branch: '├──', name: 'respaldos/' },
-  { branch: '├──', name: 'operaciones/' },
-  { branch: '└──', name: 'README.md', variant: 'muted' },
+  { branch: '└──', name: 'operaciones/', variant: 'folder' },
 ];
 
 export interface Guide {
@@ -48,22 +46,22 @@ export const guides: Guide[] = [
   {
     n: '01',
     title: 'Aplicaciones y componentes',
-    body: '<code>microservicios/</code> para componentes independientes; <code>servicios/</code> para aplicaciones completas. Cada proyecto tendrá su propio Docker Compose.',
+    body: '<code>servicios/svc-keycloak/</code> contiene el despliegue de identidad. <code>microservicios/</code> existe, pero no se observaron contenedores asociados.',
   },
   {
     n: '02',
     title: 'Aprendizaje y documentación',
-    body: '<code>moodle/</code> reserva el despliegue del aula virtual. <code>documentacion/</code> contiene las fuentes y este sitio estático.',
+    body: '<code>moodle/</code> contiene el despliegue activo del aula virtual. <code>documentacion/public/</code> contiene este sitio Astro compilado; el código fuente se mantiene fuera del servidor.',
   },
   {
     n: '03',
     title: 'Datos fuera del código',
-    body: '<code>datos/</code> para persistencia, <code>secretos/</code> para credenciales y <code>respaldos/</code> para copias. Su contenido no se publica en este sitio.',
+    body: '<code>datos/</code>, <code>secretos/</code> y <code>respaldos/</code> existen en el servidor. Moodle y Keycloak usan volúmenes Docker para los datos activos; esta página no publica su contenido.',
   },
   {
     n: '04',
     title: 'Operación del servidor',
-    body: '<code>infraestructura/</code> reúne plantillas y referencias. <code>operaciones/</code> guarda scripts, inventario y procedimientos.',
+    body: '<code>infraestructura/</code> y <code>operaciones/</code> existen en la raíz de la plataforma. Los sitios HTTPS activos se configuran en <code>/etc/nginx/sites-available/</code>.',
   },
 ];
 
@@ -78,7 +76,7 @@ export interface Metric {
 export const metrics: Metric[] = [
   { label: 'MICROSERVICIOS', value: '00', unit: 'desplegados' },
   { label: 'SERVICIOS', value: '01', unit: 'desplegado' },
-  { label: 'MOODLE', text: 'Desplegado', dot: 'tiny' },
+  { label: 'MOODLE', text: 'Publicado', dot: 'status' },
   { label: 'DOCUMENTACIÓN', text: 'Activa', dot: 'status' },
 ];
 
@@ -99,13 +97,13 @@ export const inventory: InventoryItem[] = [
   {
     tag: 'MOODLE',
     title: 'Aula virtual',
-    body: 'Desplegada en contenedores (web, PHP, cron, PostgreSQL y Redis) y aislada en 127.0.0.1:18080, aún sin publicación web.',
-    badge: 'INTERNO',
+    body: 'Publicado en <a href="https://moodle.minayao.site">moodle.minayao.site</a>. Nginx del host envía a 127.0.0.1:18080; web, PHP, cron, PostgreSQL y Redis funcionan en Docker. Redis guarda sesiones.',
+    badge: 'ACTIVO',
   },
   {
     tag: 'DOCUMENTACIÓN',
     title: 'Este sitio',
-    body: 'Sitio estático construido con Astro y desplegado por Nginx con HTTPS y renovación automática del certificado.',
+    body: 'Sitio estático construido con Astro, compilado en /srv/plataforma/documentacion/public y servido por Nginx en doc.minayao.site.',
     badge: 'ACTIVO',
   },
 ];
@@ -148,6 +146,13 @@ export const services: Service[] = [
     title: 'Identidad de la plataforma',
     body: 'Inicio de sesión único (SSO) con Keycloak 26.7.4 y PostgreSQL propio.',
     href: 'https://auth.minayao.site',
+    cta: 'Abrir',
+  },
+  {
+    tag: 'MOODLE · AULA VIRTUAL',
+    title: 'Moodle',
+    body: 'Aula virtual publicada por Nginx; el servicio web de Docker escucha solo en el loopback del servidor.',
+    href: 'https://moodle.minayao.site',
     cta: 'Abrir',
   },
   {

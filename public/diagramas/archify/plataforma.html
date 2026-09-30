@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.0.1">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>Plataforma VPS minayao.site · Diagrama</title>
+  <title>Plataforma minayao.site - estado observado · Diagrama</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -4978,9 +4978,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="PLANO / REV 01"
            data-preset-badge-editorial="EDITORIAL / NOTA DE CAMPO">
         <div class="pulse-dot"></div>
-        <h1>Plataforma VPS minayao.site</h1>
+        <h1>Plataforma minayao.site - estado observado</h1>
       </div>
-      <p class="subtitle">Nginx del host, sitios publicados, SSO Keycloak y stack Moodle aislado</p>
+      <p class="subtitle">Instantanea del VPS al 30 sep 2026 - Nginx, Astro, Keycloak y Moodle</p>
     </div>
 
 
@@ -4988,9 +4988,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / LÁMINA 04">
-      <svg viewBox="0 0 1216 870" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
-        <title id="archify-diagram-title">Plataforma VPS minayao.site</title>
-        <desc id="archify-diagram-description">Nginx del host, sitios publicados, SSO Keycloak y stack Moodle aislado</desc>
+      <svg viewBox="0 0 1224 870" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+        <title id="archify-diagram-title">Plataforma minayao.site - estado observado</title>
+        <desc id="archify-diagram-description">Instantanea del VPS al 30 sep 2026 - Nginx, Astro, Keycloak y Moodle</desc>
         <!-- Definitions -->
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -5018,9 +5018,9 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="1" data-composition-frame-label="loopback 127.0.0.1:18081" x="776" y="356" width="188" height="106" rx="8" class="c-security-group" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="Docker Compose: lms-moodle-dev (aislado)" x="96" y="558" width="648" height="244" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="Docker Compose: lms-moodle" x="496" y="558" width="688" height="244" rx="12" class="c-region" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="3" data-composition-frame-label="solo loopback 127.0.0.1:18080" x="106" y="576" width="198" height="106" rx="8" class="c-security-group" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="3" data-composition-frame-label="solo loopback 127.0.0.1:18080" x="506" y="576" width="198" height="106" rx="8" class="c-security-group" stroke-width="1"/>
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
@@ -5028,8 +5028,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <path data-edge-from="visitantes" data-edge-to="nginx" data-edge-label="HTTPS" data-edge-key="0" data-edge-id="visitantes-nginx" data-composition-points="170,310;250,310" data-composition-crossover="halo" data-composition-independent="true" d="M 170 310 L 250 310" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 325 450 L 325 344" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="certbot" data-edge-to="nginx" data-edge-label="certificado TLS" data-edge-key="1" data-edge-id="nginx-certbot" data-composition-points="325,450;325,344" data-composition-crossover="halo" data-composition-independent="true" d="M 325 450 L 325 344" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 316.95 450 L 316.95 344" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="certbot" data-edge-to="nginx" data-edge-label="certificado TLS" data-edge-key="1" data-edge-id="nginx-certbot" data-composition-points="316.95,450;316.95,344" data-composition-crossover="halo" data-composition-independent="true" d="M 316.95 450 L 316.95 344" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
           <path data-graph-role="automatic-crossover-underlay" d="M 325 280 L 325 264 Q 325 256 333 256 L 488 256 Q 496 256 496 248 L 496 219 Q 496 211 504 211 L 520 211" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
@@ -5052,20 +5052,24 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <path data-edge-from="kc_web" data-edge-to="kc_db" data-edge-label="SQL" data-edge-key="6" data-edge-id="kc-web-db" data-composition-points="950,411;1000,411" data-composition-crossover="halo" data-composition-independent="true" d="M 950 411 L 1000 411" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 290 631 L 340 631" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="m_web" data-edge-to="m_app" data-edge-label="FastCGI" data-edge-key="7" data-edge-id="web-app" data-composition-points="290,631;340,631" data-composition-crossover="halo" data-composition-independent="true" d="M 290 631 L 340 631" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 690 631 L 790 631" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="m_web" data-edge-to="m_app" data-edge-label="FastCGI" data-edge-key="7" data-edge-id="web-app" data-composition-points="690,631;790,631" data-composition-crossover="halo" data-composition-independent="true" d="M 690 631 L 790 631" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 500 631 L 560 631" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="m_app" data-edge-to="m_db" data-edge-label="SQL" data-edge-key="8" data-edge-id="app-db" data-composition-points="500,631;560,631" data-composition-crossover="halo" data-composition-independent="true" d="M 500 631 L 560 631" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 950 631 L 1000 631" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="m_app" data-edge-to="m_db" data-edge-label="SQL" data-edge-key="8" data-edge-id="app-db" data-composition-points="950,631;1000,631" data-composition-crossover="halo" data-composition-independent="true" d="M 950 631 L 1000 631" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 427 662 L 427 683 Q 427 691 435 691 L 632 691 Q 640 691 640 699 L 640 720" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="m_app" data-edge-to="m_redis" data-edge-label="sesiones" data-edge-key="9" data-edge-id="app-redis" data-composition-points="427,662;427,691;640,691;640,720" data-composition-crossover="halo" data-composition-independent="true" d="M 427 662 L 427 683 Q 427 691 435 691 L 632 691 Q 640 691 640 699 L 640 720" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 877 662 L 877 683 Q 877 691 885 691 L 1072 691 Q 1080 691 1080 699 L 1080 720" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="m_app" data-edge-to="m_redis" data-edge-label="sesiones" data-edge-key="9" data-edge-id="app-redis" data-composition-points="877,662;877,691;1080,691;1080,720" data-composition-crossover="halo" data-composition-independent="true" d="M 877 662 L 877 683 Q 877 691 885 691 L 1072 691 Q 1080 691 1080 699 L 1080 720" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 413 720 L 413 662" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="m_cron" data-edge-to="m_app" data-edge-label="CLI" data-edge-key="10" data-edge-id="cron-app" data-composition-points="413,720;413,662" data-composition-crossover="halo" data-composition-independent="true" d="M 413 720 L 413 662" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 863 720 L 863 662" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="m_cron" data-edge-to="m_app" data-edge-label="CLI" data-edge-key="10" data-edge-id="cron-app" data-composition-points="863,720;863,662" data-composition-crossover="halo" data-composition-independent="true" d="M 863 720 L 863 662" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:11">
+          <path data-graph-role="automatic-crossover-underlay" d="M 332 344 L 332 437 Q 332 445 340 445 L 597 445 Q 605 445 605 453 L 605 600" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="nginx" data-edge-to="m_web" data-edge-label="moodle.minayao.site :18080" data-edge-key="11" data-composition-points="332,344;332,445;605,445;605,600" data-composition-crossover="halo" data-composition-independent="true" d="M 332 344 L 332 437 Q 332 445 340 445 L 597 445 Q 605 445 605 453 L 605 600" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
 
         <!-- Components -->
@@ -5104,8 +5108,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="325" y="494" class="t-muted" font-size="9" text-anchor="middle">Certbot · renovación auto</text>
         </g>
 
-        <g id="node-sitio_base" data-node-id="sitio_base" data-node-label="Sitio base" tabindex="0" role="button" aria-label="Enfocar Sitio base, /var/www/html, Componente de arquitectura" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="/var/www/html" data-node-context="Componente de arquitectura">
-          <title>Sitio base · /var/www/html · Componente de arquitectura</title>
+        <g id="node-sitio_base" data-node-id="sitio_base" data-node-label="Sitio principal" tabindex="0" role="button" aria-label="Enfocar Sitio principal, /var/www/html, Componente de arquitectura" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="/var/www/html" data-node-context="Componente de arquitectura">
+          <title>Sitio principal · /var/www/html · Componente de arquitectura</title>
           <rect x="520" y="180" width="170" height="62" rx="6" class="c-mask"/>
           <rect x="520" y="180" width="170" height="62" rx="6" class="c-frontend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(526 186) scale(0.6875)">
@@ -5114,12 +5118,12 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="605" y="209" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Sitio base</text>
+          <text data-node-label="" data-detail-anchor="" x="605" y="209" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Sitio principal</text>
         <text data-detail="context" x="605" y="225" class="t-muted" font-size="9" text-anchor="middle">/var/www/html</text>
         </g>
 
-        <g id="node-docs" data-node-id="docs" data-node-label="Documentación" tabindex="0" role="button" aria-label="Enfocar Documentación, public/ estático, Componente de arquitectura" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="public/ estático" data-node-context="Componente de arquitectura">
-          <title>Documentación · public/ estático · Componente de arquitectura</title>
+        <g id="node-docs" data-node-id="docs" data-node-label="Documentación" tabindex="0" role="button" aria-label="Enfocar Documentación, Astro estatico - public/, Componente de arquitectura" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Astro estatico - public/" data-node-context="Componente de arquitectura">
+          <title>Documentación · Astro estatico - public/ · Componente de arquitectura</title>
           <rect x="520" y="280" width="170" height="62" rx="6" class="c-mask"/>
           <rect x="520" y="280" width="170" height="62" rx="6" class="c-frontend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(526 286) scale(0.6875)">
@@ -5129,18 +5133,18 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="605" y="309" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Documentación</text>
-        <text data-detail="context" x="605" y="325" class="t-muted" font-size="9" text-anchor="middle">public/ estático</text>
+        <text data-detail="context" x="605" y="325" class="t-muted" font-size="9" text-anchor="middle">Astro estatico - public/</text>
         </g>
 
-        <g id="node-auth" data-node-id="auth" data-node-label="SSO Keycloak" tabindex="0" role="button" aria-label="Enfocar SSO Keycloak, auth.minayao.site, Componente de arquitectura" aria-pressed="false" data-node-kind="security" data-node-sublabel="auth.minayao.site" data-node-context="Componente de arquitectura">
-          <title>SSO Keycloak · auth.minayao.site · Componente de arquitectura</title>
+        <g id="node-auth" data-node-id="auth" data-node-label="Proxy SSO" tabindex="0" role="button" aria-label="Enfocar Proxy SSO, auth.minayao.site, Componente de arquitectura" aria-pressed="false" data-node-kind="security" data-node-sublabel="auth.minayao.site" data-node-context="Componente de arquitectura">
+          <title>Proxy SSO · auth.minayao.site · Componente de arquitectura</title>
           <rect x="520" y="380" width="170" height="62" rx="6" class="c-mask"/>
           <rect x="520" y="380" width="170" height="62" rx="6" class="c-security" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(526 386) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="605" y="409" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SSO Keycloak</text>
+          <text data-node-label="" data-detail-anchor="" x="605" y="409" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Proxy SSO</text>
         <text data-detail="context" x="605" y="425" class="t-muted" font-size="9" text-anchor="middle">auth.minayao.site</text>
         </g>
 
@@ -5167,61 +5171,61 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <text data-detail="context" x="1075" y="425" class="t-muted" font-size="9" text-anchor="middle">16 · volumen</text>
         </g>
 
-        <g id="node-m_web" data-node-id="m_web" data-node-label="Moodle Web" tabindex="0" role="button" aria-label="Enfocar Moodle Web, 127.0.0.1:18080, Docker Compose: lms-moodle-dev (aislado) › solo loopback 127.0.0.1:18080" aria-pressed="false" data-node-kind="backend" data-node-sublabel="127.0.0.1:18080" data-node-context="Docker Compose: lms-moodle-dev (aislado) › solo loopback 127.0.0.1:18080">
-          <title>Moodle Web · 127.0.0.1:18080 · Docker Compose: lms-moodle-dev (aislado) › solo loopback 127.0.0.1:18080</title>
-          <rect x="120" y="600" width="170" height="62" rx="6" class="c-mask"/>
-          <rect x="120" y="600" width="170" height="62" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(126 606) scale(0.6875)">
+        <g id="node-m_web" data-node-id="m_web" data-node-label="Moodle Web" tabindex="0" role="button" aria-label="Enfocar Moodle Web, 127.0.0.1:18080, Docker Compose: lms-moodle › solo loopback 127.0.0.1:18080" aria-pressed="false" data-node-kind="backend" data-node-sublabel="127.0.0.1:18080" data-node-context="Docker Compose: lms-moodle › solo loopback 127.0.0.1:18080">
+          <title>Moodle Web · 127.0.0.1:18080 · Docker Compose: lms-moodle › solo loopback 127.0.0.1:18080</title>
+          <rect x="520" y="600" width="170" height="62" rx="6" class="c-mask"/>
+          <rect x="520" y="600" width="170" height="62" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(526 606) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="205" y="629" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Moodle Web</text>
-        <text data-detail="context" x="205" y="645" class="t-muted" font-size="9" text-anchor="middle">127.0.0.1:18080</text>
+          <text data-node-label="" data-detail-anchor="" x="605" y="629" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Moodle Web</text>
+        <text data-detail="context" x="605" y="645" class="t-muted" font-size="9" text-anchor="middle">127.0.0.1:18080</text>
         </g>
 
-        <g id="node-m_app" data-node-id="m_app" data-node-label="Moodle PHP" tabindex="0" role="button" aria-label="Enfocar Moodle PHP, PHP-FPM :9000, Docker Compose: lms-moodle-dev (aislado)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="PHP-FPM :9000" data-node-context="Docker Compose: lms-moodle-dev (aislado)">
-          <title>Moodle PHP · PHP-FPM :9000 · Docker Compose: lms-moodle-dev (aislado)</title>
-          <rect x="340" y="600" width="160" height="62" rx="6" class="c-mask"/>
-          <rect x="340" y="600" width="160" height="62" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(346 606) scale(0.6875)">
+        <g id="node-m_app" data-node-id="m_app" data-node-label="Moodle PHP" tabindex="0" role="button" aria-label="Enfocar Moodle PHP, PHP-FPM :9000, Docker Compose: lms-moodle" aria-pressed="false" data-node-kind="backend" data-node-sublabel="PHP-FPM :9000" data-node-context="Docker Compose: lms-moodle">
+          <title>Moodle PHP · PHP-FPM :9000 · Docker Compose: lms-moodle</title>
+          <rect x="790" y="600" width="160" height="62" rx="6" class="c-mask"/>
+          <rect x="790" y="600" width="160" height="62" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(796 606) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="420" y="629" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Moodle PHP</text>
-        <text data-detail="context" x="420" y="645" class="t-muted" font-size="9" text-anchor="middle">PHP-FPM :9000</text>
+          <text data-node-label="" data-detail-anchor="" x="870" y="629" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Moodle PHP</text>
+        <text data-detail="context" x="870" y="645" class="t-muted" font-size="9" text-anchor="middle">PHP-FPM :9000</text>
         </g>
 
-        <g id="node-m_cron" data-node-id="m_cron" data-node-label="Cron" tabindex="0" role="button" aria-label="Enfocar Cron, tareas programadas, Docker Compose: lms-moodle-dev (aislado)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="tareas programadas" data-node-context="Docker Compose: lms-moodle-dev (aislado)">
-          <title>Cron · tareas programadas · Docker Compose: lms-moodle-dev (aislado)</title>
-          <rect x="340" y="720" width="160" height="62" rx="6" class="c-mask"/>
-          <rect x="340" y="720" width="160" height="62" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(346 726) scale(0.6875)">
+        <g id="node-m_cron" data-node-id="m_cron" data-node-label="Cron" tabindex="0" role="button" aria-label="Enfocar Cron, tareas programadas, Docker Compose: lms-moodle" aria-pressed="false" data-node-kind="backend" data-node-sublabel="tareas programadas" data-node-context="Docker Compose: lms-moodle">
+          <title>Cron · tareas programadas · Docker Compose: lms-moodle</title>
+          <rect x="790" y="720" width="160" height="62" rx="6" class="c-mask"/>
+          <rect x="790" y="720" width="160" height="62" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(796 726) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="420" y="749" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Cron</text>
-        <text data-detail="context" x="420" y="765" class="t-muted" font-size="9" text-anchor="middle">tareas programadas</text>
+          <text data-node-label="" data-detail-anchor="" x="870" y="749" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Cron</text>
+        <text data-detail="context" x="870" y="765" class="t-muted" font-size="9" text-anchor="middle">tareas programadas</text>
         </g>
 
-        <g id="node-m_db" data-node-id="m_db" data-node-label="PostgreSQL" tabindex="0" role="button" aria-label="Enfocar PostgreSQL, 16 · volumen, Docker Compose: lms-moodle-dev (aislado)" aria-pressed="false" data-node-kind="database" data-node-sublabel="16 · volumen" data-node-context="Docker Compose: lms-moodle-dev (aislado)">
-          <title>PostgreSQL · 16 · volumen · Docker Compose: lms-moodle-dev (aislado)</title>
-          <rect x="560" y="600" width="160" height="62" rx="6" class="c-mask"/>
-          <rect x="560" y="600" width="160" height="62" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(566 606) scale(0.6875)">
+        <g id="node-m_db" data-node-id="m_db" data-node-label="PostgreSQL" tabindex="0" role="button" aria-label="Enfocar PostgreSQL, 16 · volumen, Docker Compose: lms-moodle" aria-pressed="false" data-node-kind="database" data-node-sublabel="16 · volumen" data-node-context="Docker Compose: lms-moodle">
+          <title>PostgreSQL · 16 · volumen · Docker Compose: lms-moodle</title>
+          <rect x="1000" y="600" width="160" height="62" rx="6" class="c-mask"/>
+          <rect x="1000" y="600" width="160" height="62" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(1006 606) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="640" y="629" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL</text>
-        <text data-detail="context" x="640" y="645" class="t-muted" font-size="9" text-anchor="middle">16 · volumen</text>
+          <text data-node-label="" data-detail-anchor="" x="1080" y="629" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL</text>
+        <text data-detail="context" x="1080" y="645" class="t-muted" font-size="9" text-anchor="middle">16 · volumen</text>
         </g>
 
-        <g id="node-m_redis" data-node-id="m_redis" data-node-label="Redis" tabindex="0" role="button" aria-label="Enfocar Redis, 7 · sesiones, Docker Compose: lms-moodle-dev (aislado)" aria-pressed="false" data-node-kind="database" data-node-sublabel="7 · sesiones" data-node-context="Docker Compose: lms-moodle-dev (aislado)">
-          <title>Redis · 7 · sesiones · Docker Compose: lms-moodle-dev (aislado)</title>
-          <rect x="560" y="720" width="160" height="62" rx="6" class="c-mask"/>
-          <rect x="560" y="720" width="160" height="62" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(566 726) scale(0.6875)">
+        <g id="node-m_redis" data-node-id="m_redis" data-node-label="Redis" tabindex="0" role="button" aria-label="Enfocar Redis, 7 - sesiones Moodle, Docker Compose: lms-moodle" aria-pressed="false" data-node-kind="database" data-node-sublabel="7 - sesiones Moodle" data-node-context="Docker Compose: lms-moodle">
+          <title>Redis · 7 - sesiones Moodle · Docker Compose: lms-moodle</title>
+          <rect x="1000" y="720" width="160" height="62" rx="6" class="c-mask"/>
+          <rect x="1000" y="720" width="160" height="62" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(1006 726) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="640" y="749" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Redis</text>
-        <text data-detail="context" x="640" y="765" class="t-muted" font-size="9" text-anchor="middle">7 · sesiones</text>
+          <text data-node-label="" data-detail-anchor="" x="1080" y="749" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Redis</text>
+        <text data-detail="context" x="1080" y="765" class="t-muted" font-size="9" text-anchor="middle">7 - sesiones Moodle</text>
         </g>
 
         <!-- Connection labels -->
@@ -5230,8 +5234,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <text x="210" y="300" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTPS</text>
         </g>
         <g data-detail="context" data-edge-from="certbot" data-edge-to="nginx" data-edge-label="certificado TLS" data-edge-key="1" data-edge-id="nginx-certbot">
-          <rect x="284" y="430" width="82" height="14" rx="3" class="c-mask"/>
-          <text x="325" y="440" class="t-edge-security" font-size="8" text-anchor="middle">certificado TLS</text>
+          <rect x="228.95" y="390" width="82" height="14" rx="3" class="c-mask"/>
+          <text x="269.95" y="400" class="t-edge-security" font-size="8" text-anchor="middle">certificado TLS</text>
         </g>
         <g data-detail="context" data-edge-from="nginx" data-edge-to="sitio_base" data-edge-label="minayao.site" data-edge-key="2" data-edge-id="nginx-sitio-base">
           <rect x="376.7" y="220" width="67.6" height="14" rx="3" class="c-mask"/>
@@ -5254,20 +5258,24 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <text x="975" y="401" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
         </g>
         <g data-detail="context" data-edge-from="m_web" data-edge-to="m_app" data-edge-label="FastCGI" data-edge-key="7" data-edge-id="web-app">
-          <rect x="293.2" y="611" width="43.6" height="14" rx="3" class="c-mask"/>
-          <text x="315" y="621" class="t-edge-default" font-size="8" text-anchor="middle">FastCGI</text>
+          <rect x="718.2" y="611" width="43.6" height="14" rx="3" class="c-mask"/>
+          <text x="740" y="621" class="t-edge-default" font-size="8" text-anchor="middle">FastCGI</text>
         </g>
         <g data-detail="context" data-edge-from="m_app" data-edge-to="m_db" data-edge-label="SQL" data-edge-key="8" data-edge-id="app-db">
-          <rect x="515" y="611" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="530" y="621" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
+          <rect x="960" y="611" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="975" y="621" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
         </g>
         <g data-detail="context" data-edge-from="m_app" data-edge-to="m_redis" data-edge-label="sesiones" data-edge-key="9" data-edge-id="app-redis">
-          <rect x="509.3" y="671" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="533.5" y="681" class="t-edge-dashed" font-size="8" text-anchor="middle">sesiones</text>
+          <rect x="954.3" y="671" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="978.5" y="681" class="t-edge-dashed" font-size="8" text-anchor="middle">sesiones</text>
         </g>
         <g data-detail="context" data-edge-from="m_cron" data-edge-to="m_app" data-edge-label="CLI" data-edge-key="10" data-edge-id="cron-app">
-          <rect x="398" y="700" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="413" y="710" class="t-edge-default" font-size="8" text-anchor="middle">CLI</text>
+          <rect x="848" y="700" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="863" y="710" class="t-edge-default" font-size="8" text-anchor="middle">CLI</text>
+        </g>
+        <g data-detail="context" data-edge-from="nginx" data-edge-to="m_web" data-edge-label="moodle.minayao.site :18080" data-edge-key="11">
+          <rect x="338" y="425.375" width="134.8" height="14" rx="3" class="c-mask"/>
+          <text x="405.4" y="435.375" class="t-edge-emphasis" font-size="8" text-anchor="middle">moodle.minayao.site :18080</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -5281,14 +5289,14 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <text data-boundary-label="" x="784" y="373" class="t-security" font-size="9" font-weight="600">loopback 127.0.0.1:18081</text>
         </g>
 
-        <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="Docker Compose: lms-moodle-dev (aislado)">
-          <rect data-graph-role="structural-frame-label-mask" x="100" y="562" width="226" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="104" y="575" class="t-cloud" font-size="9" font-weight="600">Docker Compose: lms-moodle-dev (aislado)</text>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="Docker Compose: lms-moodle">
+          <rect data-graph-role="structural-frame-label-mask" x="500" y="562" width="150.4" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="504" y="575" class="t-cloud" font-size="9" font-weight="600">Docker Compose: lms-moodle</text>
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="3" data-composition-frame-kind="security-group" data-composition-frame-label="solo loopback 127.0.0.1:18080">
-          <rect data-graph-role="structural-frame-label-mask" x="110" y="580" width="166.6" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="114" y="593" class="t-security" font-size="9" font-weight="600">solo loopback 127.0.0.1:18080</text>
+          <rect data-graph-role="structural-frame-label-mask" x="510" y="580" width="166.6" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="514" y="593" class="t-security" font-size="9" font-weight="600">solo loopback 127.0.0.1:18080</text>
         </g>
 
         <!-- Legend -->
@@ -5512,9 +5520,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Sitios publicados</h3>
         </div>
         <ul>
-          <li>minayao.site sirve /var/www/html (sitio base)</li>
-          <li>doc.minayao.site sirve la documentación estática</li>
-          <li>auth.minayao.site hace proxy al SSO Keycloak</li>
+          <li>minayao.site sirve /var/www/html</li>
+          <li>doc.minayao.site sirve Astro compilado</li>
+          <li>auth.minayao.site apunta a 127.0.0.1:18081</li>
+          <li>moodle.minayao.site apunta a 127.0.0.1:18080</li>
         </ul>
       </div>
 
@@ -5534,13 +5543,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="card">
         <div class="card-header">
           <div class="card-dot rose"></div>
-          <h3>Stack Moodle aislado</h3>
+          <h3>Moodle publicado</h3>
         </div>
         <ul>
-          <li>Proyecto Docker lms-moodle-dev en marcha</li>
-          <li>Moodle Web escucha solo en 127.0.0.1:18080</li>
-          <li>PostgreSQL y Redis no publican puertos</li>
-          <li>Sin virtual host que publique Moodle todavía</li>
+          <li>Proyecto Docker lms-moodle: web, app, cron, PostgreSQL y Redis</li>
+          <li>Web en loopback 127.0.0.1:18080; Nginx termina HTTPS</li>
+          <li>PostgreSQL y Redis sin puertos publicados</li>
+          <li>Redis almacena sesiones de Moodle</li>
         </ul>
       </div>
 
@@ -5550,8 +5559,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
           <h3>Certificados</h3>
         </div>
         <ul>
-          <li>Let&#39;s Encrypt cubre minayao.site, www, doc y auth</li>
-          <li>Certbot renueva automáticamente (tarea programada)</li>
+          <li>Certificado Moodle presente en /etc/letsencrypt/live/</li>
+          <li>Los sitios HTTPS usan certificados TLS</li>
         </ul>
       </div>
     </div>

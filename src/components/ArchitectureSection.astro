@@ -13,14 +13,30 @@ import { tree, guides } from '../data/platform';
       </h2>
     </div>
     <p class="m-0 text-right text-[11px] text-muted max-sm:mt-2 max-sm:text-left">
-      Carpetas base creadas.<br />Los proyectos se incorporan aquí.
+      Estructura observada en el servidor.<br />30 de septiembre de 2026.
     </p>
   </div>
 
   <nav aria-label="Diagramas de arquitectura" class="mb-5 flex flex-wrap gap-4 text-[12px] text-brand">
-    <a class="underline" href="/diagramas/archify/plataforma.html">Diagrama interactivo · última versión</a>
-    <a class="underline" href="/diagramas/archify/plataforma-20260929-204500.html">Versión anterior · 29 septiembre 2026</a>
+    <a class="underline" href="/diagramas/archify/plataforma.html">Diagrama interactivo · estado observado</a>
+    <a class="underline" href="/diagramas/archify/plataforma-20260930.png">Captura del estado observado · PNG</a>
+    <a class="underline" href="/diagramas/archify/plataforma-20260929-204500.html">Versión histórica · 29 septiembre 2026</a>
   </nav>
+
+  <figure class="mb-6 overflow-hidden rounded-[9px] border border-line bg-white">
+    <a href="/diagramas/archify/plataforma.html" aria-label="Abrir el diagrama interactivo del servidor">
+      <img
+        src="/diagramas/archify/plataforma-20260930.png"
+        width="1440"
+        height="900"
+        loading="lazy"
+        alt="Diagrama de la configuración observada: Nginx publica el sitio principal, Astro, Keycloak y Moodle; Moodle usa PostgreSQL y Redis."
+      />
+    </a>
+    <figcaption class="border-t border-line px-4 py-3 text-[10px] text-muted">
+      Captura del diagrama elaborado desde una inspección del VPS el 30 de septiembre de 2026. Es una instantánea, no un monitor en vivo.
+    </figcaption>
+  </figure>
 
   <div class="grid grid-cols-1 gap-7 lg:grid-cols-[1fr_1.02fr] max-sm:gap-5">
     <div class="overflow-hidden rounded-[9px] border border-line bg-white">
@@ -63,7 +79,7 @@ import { tree, guides } from '../data/platform';
       </div>
 
       <div class="border-t border-[#edf1ec] px-[18px] py-[13px] text-[9px] text-muted">
-        <span class="mr-1.5" aria-hidden="true">↳</span> Cada carpeta principal incluye su guía README.md.
+        <span class="mr-1.5" aria-hidden="true">↳</span> Inventario de carpetas; su presencia no implica que cada una tenga servicios activos.
       </div>
     </div>
 
@@ -88,21 +104,25 @@ import { tree, guides } from '../data/platform';
         >
           <span>
             <span class="example-icon mr-3 inline-block font-mono text-[17px] text-brand transition-transform" aria-hidden="true">↳</span>
-            Así se organiza un nuevo proyecto
+            Ejemplo real: carpeta de Moodle
           </span>
           <span class="font-mono text-[8px] tracking-[0.4px] text-[#758477] max-sm:ml-[27px] max-sm:block max-sm:text-[7px]">EJEMPLO</span>
         </summary>
         <div class="grid grid-cols-1 gap-7 border-t border-line p-5 md:grid-cols-2 max-sm:gap-5">
-          <pre class="m-0 overflow-auto font-mono text-[11px] leading-[1.9]">servicios/&lt;nombre&gt;/
+          <pre class="m-0 overflow-auto font-mono text-[11px] leading-[1.9]">moodle/
 ├── compose.yaml
 ├── Dockerfile
 ├── .env.example
 ├── config/
-└── README.md</pre>
+├── docker/
+├── releases/
+├── scripts/
+└── deploy-runbook.md</pre>
           <p class="m-0 text-[12px] text-muted">
-            El código y la configuración del proyecto viven juntos. Los datos persistentes y las credenciales
-            reales se mantienen en sus carpetas correspondientes.<br /><br />
-            <strong>Un proyecto, una responsabilidad y una guía de despliegue.</strong>
+            Estos archivos y carpetas se observaron en <code>/srv/plataforma/moodle/</code>. La instalación
+            también tiene un <code>.env</code> local que no se publica aquí. Moodle guarda código compartido,
+            archivos y PostgreSQL en volúmenes Docker.<br /><br />
+            <strong>La captura corresponde al estado del 30 de septiembre de 2026.</strong>
           </p>
         </div>
       </details>

@@ -10,7 +10,7 @@ import { inventory } from '../data/platform';
       </div>
       <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px] max-sm:text-[24px]">Lo que existe hoy</h2>
     </div>
-    <span class="text-[9px] text-muted max-sm:mt-2.5 max-sm:block">Revisión: 29 sep 2026 · Actualización manual</span>
+    <span class="text-[9px] text-muted max-sm:mt-2.5 max-sm:block">Verificado en el servidor: 30 sep 2026 · instantánea manual</span>
   </div>
 
   {
@@ -37,8 +37,8 @@ import { inventory } from '../data/platform';
       aria-hidden="true">i</span
     >
     <p class="m-0 text-[10px] leading-[1.8] max-sm:text-[11px]">
-      <strong class="font-semibold text-[#4c6256]">Contenedores y datos separados.</strong> Docker está instalado y en
-      uso; la persistencia vive en <code>datos/</code> y los secretos en <code>secretos/</code>, fuera del sitio público.
+      <strong class="font-semibold text-[#4c6256]">Contenedores y datos separados.</strong> Moodle y Keycloak usan
+      volúmenes Docker para sus datos activos. El sitio público muestra la topología observada, sin credenciales.
     </p>
   </div>
 </section>
