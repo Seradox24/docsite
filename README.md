@@ -1,66 +1,79 @@
 # docsite
 
-Sitio de documentación de la plataforma **minayao.site**, construido con **Astro** (TypeScript, Tailwind CSS v4 y una isla React).
+Documentación de **minayao.site**, construida con Astro, TypeScript, Tailwind CSS y React.
 
-- URL: https://doc.minayao.site
+- Sitio: https://doc.minayao.site
 - Repositorio: https://github.com/Seradox24/docsite
-- Este proyecto vive **en local** (fuente) y GitHub; el servidor es solo el **destino del despliegue**
-  (`/srv/plataforma/documentacion/public/`, servido por Nginx).
-
-## Requisitos
-
-- Node.js >= 22.12
+- Proyecto local: `D:/Servidor/documentacion/docsite Dev`
+- Destino del sitio compilado: `/srv/plataforma/documentacion/public/`
 
 ## Desarrollo
 
+Requiere Node.js >= 22.12.
+
 ```bash
-npm install
-npm run dev      # servidor local en http://localhost:4321
-npm run build    # genera dist/
-npm run preview  # sirve dist/ localmente
+npm ci
+npm run dev
+npm run build
+npm run preview
 ```
+
+`npm run build` genera `dist/` localmente. Para publicar, registra y sube los cambios:
+
+```bash
+git add .
+git commit -m "Actualizar documentación"
+git push origin main
+```
+
+Cada push a `main` ejecuta **Build and deploy** en GitHub Actions: instala con
+`npm ci`, compila y sincroniza `dist/` por SSH. También se puede ejecutar desde
+Actions → Build and deploy → Run workflow. Guardar archivos o compilar localmente
+no hace commit ni push automáticamente.
 
 ## Estructura
 
-```
-src/
-├── components/        # Sidebar, Topbar, Hero, Metrics, secciones, Footer
-│   └── react/         # islas React (client:visible)
-├── data/platform.ts   # contenido tipado (nav, inventario, servicios)
-├── layouts/BaseLayout.astro
-├── pages/index.astro
-└── styles/global.css  # Tailwind v4 + tokens de diseño (@theme)
-public/
-└── arquitectura.html  # diagrama interactivo (Archify), se copia tal cual
-```
+- `src/components/`: secciones y componentes.
+- `src/data/platform.ts`: contenido e inventario.
+- `src/pages/index.astro`: página principal.
+- `public/diagramas/archify/`: las dos versiones HTML de los diagramas.
+- `public/arquitectura.html`: acceso compatible a la última versión.
+- `diagramas/README.md`: procedencia y actualización de diagramas.
+- `.github/workflows/deploy.yml`: compilación y publicación.
+- `.github/ssh_known_hosts`: clave pública del servidor, obtenida por la conexión SSH existente.
 
-## Despliegue automático (GitHub Actions)
+## Configuración del despliegue
 
-`.github/workflows/deploy.yml` compila en cada push a `main` y publica `dist/`
-en el servidor por `rsync` sobre SSH. No se instala Node en el servidor.
+El único secret obligatorio es **SSH_PRIVATE_KEY**, con la clave privada de
+publicación existente en `/root/.ssh/docsite_deploy_actions` del servidor.
+Agrégalo en GitHub → Settings → Secrets and variables → Actions.
+No guardes esa clave dentro del repositorio.
 
-Secrets requeridos en GitHub (Settings → Secrets and variables → Actions):
+Los siguientes valores ya están definidos en el workflow. Si existen secrets
+con estos nombres, deben coincidir con el destino designado:
 
-| Secret | Descripción | Valor |
-| --- | --- | --- |
-| `SSH_PRIVATE_KEY` | Clave privada de deploy (GitHub → servidor) | contenido de `/root/.ssh/docsite_deploy_actions` en el servidor |
-| `SSH_HOST` | IP del servidor | `147.93.132.78` |
-| `SSH_USER` | Usuario de deploy en el servidor | `docsite` |
-| `SSH_PORT` | Puerto SSH | `22` |
-| `DEPLOY_PATH` | Carpeta destino | `/srv/plataforma/documentacion/public` |
+| Secret opcional | Valor |
+| --- | --- |
+| `SSH_HOST` | `147.93.132.78` |
+| `SSH_USER` | `docsite` |
+| `SSH_PORT` | `22` |
+| `DEPLOY_PATH` | `/srv/plataforma/documentacion/public` |
 
-## Despliegue manual (alternativo)
+El workflow valida estos valores antes de sincronizar. Comprueba además la clave
+SSH, la identidad del servidor, los archivos compilados y los permisos del destino.
+Las publicaciones se ejecutan en serie para no interrumpir una sincronización activa.
+`rsync` elimina del destino los archivos que ya no existen en `dist/`: esa carpeta
+debe contener exclusivamente la documentación generada. No es un despliegue atómico.
 
-Desde local, si no se usa Actions:
+El servidor requiere `rsync`, el usuario `docsite` y permisos de escritura en la
+carpeta destino. Nginx sirve los archivos estáticos; no se requiere Node en el servidor.
+Si cambia la clave pública del servidor, verifica el cambio por SSH y actualiza
+`.github/ssh_known_hosts` antes de publicar.
 
-```bash
-npm run build
-scp -r dist/* docsite@147.93.132.78:/srv/plataforma/documentacion/public/
-```
+## Verificación
 
-## Primer push
+Después del push, revisa que **Build and deploy** termine correctamente y visita:
 
-```bash
-git remote add origin https://github.com/Seradox24/docsite.git
-git push -u origin main --force
-```
+- https://doc.minayao.site
+- https://doc.minayao.site/diagramas/archify/plataforma.html
+- https://doc.minayao.site/diagramas/archify/plataforma-20260929-204500.html

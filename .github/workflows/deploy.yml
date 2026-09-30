@@ -7,11 +7,20 @@ on:
 
 concurrency:
   group: docsite-deploy
-  cancel-in-progress: true
+  cancel-in-progress: false
+
+permissions:
+  contents: read
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST || '147.93.132.78' }}
+      SSH_USER: ${{ secrets.SSH_USER || 'docsite' }}
+      SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH || '/srv/plataforma/documentacion/public' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -31,21 +40,34 @@ jobs:
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
+          set -euo pipefail
+          if [ -z "$SSH_PRIVATE_KEY" ]; then
+            echo '::error::Falta el secret SSH_PRIVATE_KEY en este repositorio.'
+            exit 1
+          fi
+          test "$SSH_HOST" = '147.93.132.78'
+          test "$SSH_USER" = 'docsite'
+          test "$SSH_PORT" = '22'
+          test "$DEPLOY_PATH" = '/srv/plataforma/documentacion/public'
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          cp .github/ssh_known_hosts ~/.ssh/known_hosts
+          ssh-keygen -y -P '' -f ~/.ssh/deploy_key > /dev/null
 
       - name: Deploy dist
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          rsync -az --delete \
-            -e "ssh -i ~/.ssh/deploy_key -p ${SSH_PORT:-22} -o IdentitiesOnly=yes" \
+          set -euo pipefail
+          test -s dist/index.html
+          test -s dist/diagramas/archify/plataforma.html
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" -o BatchMode=yes -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes \
+            "$SSH_USER@$SSH_HOST" "test -d '$DEPLOY_PATH' && test -w '$DEPLOY_PATH'"
+          rsync -az --delete-delay --delay-updates \
+            -e "ssh -i ~/.ssh/deploy_key -p $SSH_PORT -o BatchMode=yes -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes" \
             dist/ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+
+      - name: Remove deploy key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
