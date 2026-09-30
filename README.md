@@ -37,7 +37,7 @@ no hace commit ni push automáticamente.
 - `src/data/platform.ts`: contenido e inventario.
 - `src/pages/index.astro`: página principal.
 - `public/diagramas/archify/`: las dos versiones HTML de los diagramas.
-- `public/diagramas/archify/plataforma-20260930.png`: captura del diagrama del estado observado.
+- `public/diagramas/archify/plataforma-rutas-20260930.png`: captura del diagrama del estado observado.
 - `diagramas/estado-servidor-2026-09-30.md`: evidencia resumida de la inspección del VPS.
 - `public/arquitectura.html`: acceso compatible a la última versión.
 - `diagramas/README.md`: procedencia y actualización de diagramas.
@@ -78,5 +78,5 @@ Después del push, revisa que **Build and deploy** termine correctamente y visit
 
 - https://doc.minayao.site
 - https://doc.minayao.site/diagramas/archify/plataforma.html
-- https://doc.minayao.site/diagramas/archify/plataforma-20260930.png
+- https://doc.minayao.site/diagramas/archify/plataforma-rutas-20260930.png
 - https://doc.minayao.site/diagramas/archify/plataforma-20260929-204500.html

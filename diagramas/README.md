@@ -5,8 +5,8 @@ los copia a `dist/diagramas/archify/` al compilar:
 
 | Archivo | Origen local | Uso |
 | --- | --- | --- |
-| `plataforma.html` | `.archify/architecture-plataforma-real-20260930-210000/plataforma.html` | Estado observado el 30-09-2026 |
-| `plataforma-20260930.png` | Captura de Archify a 1440×900 | Vista fija del estado observado |
+| `plataforma.html` | `.archify/architecture-plataforma-rutas-20260930-210500/plataforma.html` | Estado observado el 30-09-2026; rutas separadas |
+| `plataforma-rutas-20260930.png` | Captura de Archify a 1440×900 | Vista fija del estado observado |
 | `plataforma-20260929-204500.html` | `.archify/architecture-plataforma-20260929-204500/plataforma.html` | Versión anterior |
 
 Los orígenes son relativos a `D:/Servidor`. La versión actual se construyó con
