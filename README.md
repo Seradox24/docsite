@@ -1,89 +1,47 @@
-# docsite
+# Documentación del servidor actual
 
-Documentación de **minayao.site**, construida con Astro, TypeScript, Tailwind CSS y React.
+Proyecto Astro de `moodlenewen`, VM LAN `192.168.50.11`.
+Sitio: https://doc.minayao.site. Publicación: `/srv/plataforma/documentacion/public/`.
+Se conserva el diseño, los componentes y la estructura del proyecto anterior.
 
-- Sitio: https://doc.minayao.site
-- Repositorio: https://github.com/Seradox24/docsite
-- Proyecto local: `D:/Servidor/documentacion/docsite Dev`
-- Destino del sitio compilado: `/srv/plataforma/documentacion/public/`
+## Servidor legado
+
+Respaldo previo a los cambios: `../docsite servidor legado 2026-10-01/`.
+Archivo: `../docsite-servidor-legado-2026-10-01.zip`.
+Incluye Git, fuentes, diagramas, configuración y dist; excluye node_modules y .astro.
+Integridad comprobada por archivo con SHA-256 y CRC del ZIP.
+La copia histórica publicada está en `/legado/`, marcada como VPS `147.93.132.78`.
+Describe el estado anterior, no servicios activos en la VM.
 
 ## Desarrollo
 
-Requiere Node.js >= 22.12.
+Requiere Node.js >= 22.12. Ejecutar `npm ci` y `npm run build`.
+Inventario: `src/data/platform.ts`. Componentes: `src/components/`.
+Estado detallado: `diagramas/estado-servidor-nuevo-2026-10-01.md`.
+Mantener credenciales, claves y procedimientos privados fuera de `public/`.
 
-```bash
-npm ci
-npm run dev
-npm run build
-npm run preview
+## Publicación LAN
+
+El workflow de GitHub ahora solo compila y conserva un artefacto. Ya no despliega
+en el VPS legado. La VM recibe `dist/` por SSH desde un equipo con acceso a la LAN.
+Compilar localmente no hace commit, push ni publica automáticamente.
+Conservar una copia del sitio anterior en `respaldos/documentacion/` antes de publicar.
+
+Para compilar y publicar por SSH desde este equipo:
+
+```powershell
+pwsh -File scripts/publish-lan.ps1
 ```
 
-`npm run build` genera `dist/` localmente. Para publicar, registra y sube los cambios:
+El script compila, transfiere exclusivamente `dist/` a la VM y cambia el enlace
+`public` de forma atómica. Conserva la versión anterior y verifica HTTPS;
+si falla la comprobación, restaura el enlace anterior. No requiere recargar
+Nginx cuando solo cambia el contenido estático. La clave debe estar desbloqueada
+en el agente SSH. Los cambios de código se registran con Git y se suben a `origin`;
+las compilaciones no se incluyen en Git (`dist/` está ignorado).
 
-```bash
-git add .
-git commit -m "Actualizar documentación"
-git push origin main
-```
+## Estado inicial
 
-Cada push a `main` ejecuta **Build and deploy** en GitHub Actions: instala con
-`npm ci`, compila y sincroniza `dist/` por SSH. También se puede ejecutar desde
-Actions → Build and deploy → Run workflow. Guardar archivos o compilar localmente
-no hace commit ni push automáticamente.
-
-## Estructura
-
-- `src/components/`: secciones y componentes.
-- `src/data/platform.ts`: contenido e inventario.
-- `src/pages/index.astro`: página principal.
-- `public/diagramas/archify/`: las dos versiones HTML de los diagramas.
-- `public/diagramas/archify/plataforma-rutas-20260930.png`: captura del diagrama del estado observado.
-- `diagramas/estado-servidor-2026-09-30.md`: evidencia resumida de la inspección del VPS.
-- `diagramas/estado-servidor-2026-10-01.md`: instalación de Yet SQL LRS, rutas y verificaciones.
-- `public/arquitectura.html`: acceso compatible a la última versión.
-- `diagramas/README.md`: procedencia y actualización de diagramas.
-- `.github/workflows/deploy.yml`: compilación y publicación.
-- `.github/ssh_known_hosts`: clave pública del servidor, obtenida por la conexión SSH existente.
-
-## Configuración del despliegue
-
-El único secret obligatorio es **SSH_PRIVATE_KEY**, con la clave privada de
-publicación existente en `/root/.ssh/docsite_deploy_actions` del servidor.
-Agrégalo en GitHub → Settings → Secrets and variables → Actions.
-No guardes esa clave dentro del repositorio.
-
-Los siguientes valores ya están definidos en el workflow. Si existen secrets
-con estos nombres, deben coincidir con el destino designado:
-
-| Secret opcional | Valor |
-| --- | --- |
-| `SSH_HOST` | `147.93.132.78` |
-| `SSH_USER` | `docsite` |
-| `SSH_PORT` | `22` |
-| `DEPLOY_PATH` | `/srv/plataforma/documentacion/public` |
-
-El workflow valida estos valores antes de sincronizar. Comprueba además la clave
-SSH, la identidad del servidor, los archivos compilados y los permisos del destino.
-Las publicaciones se ejecutan en serie para no interrumpir una sincronización activa.
-`rsync` elimina del destino los archivos que ya no existen en `dist/`: esa carpeta
-debe contener exclusivamente la documentación generada. No es un despliegue atómico.
-
-El servidor requiere `rsync`, el usuario `docsite` y permisos de escritura en la
-carpeta destino. Nginx sirve los archivos estáticos; no se requiere Node en el servidor.
-Si cambia la clave pública del servidor, verifica el cambio por SSH y actualiza
-`.github/ssh_known_hosts` antes de publicar.
-
-## Verificación
-
-Después del push, revisa que **Build and deploy** termine correctamente y visita:
-
-- https://doc.minayao.site
-- https://doc.minayao.site/diagramas/archify/plataforma.html
-- https://doc.minayao.site/diagramas/archify/plataforma-rutas-20260930.png
-- https://doc.minayao.site/diagramas/archify/plataforma-20260929-204500.html
-
-El inventario y el diagrama Archify del 1 de octubre incluyen Keycloak, Yet SQL LRS y Moodle.
-El diagrama del 30 de septiembre está archivado en `plataforma-20260930.html`.
-La documentación pública enlaza la administración y el repositorio de Yet;
-las contraseñas y claves xAPI se mantienen únicamente en el archivo privado
-de secretos del servidor.
+Nginx y ambos sitios HTTPS activos. Uptime Kuma, Portainer y Glances apagados.
+Moodle, Keycloak y LRS pendientes de migración. Renovación TLS externa pendiente
+de automatizar; certificado válido hasta el 30 de diciembre de 2026.

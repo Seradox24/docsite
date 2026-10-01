@@ -17,28 +17,16 @@ import { tree, guides } from '../data/platform';
     </p>
   </div>
 
-  <nav aria-label="Diagramas de arquitectura" class="mb-5 flex flex-wrap gap-4 text-[12px] text-brand">
-    <a class="underline" href="/diagramas/archify/plataforma.html">Diagrama interactivo · incluye Yet</a>
-    <a class="underline" href="/diagramas/archify/plataforma-moodle-20261001.png">Captura actual · PNG</a>
-    <a class="underline" href="/diagramas/archify/plataforma-20260930.html">Versión histórica · 30 septiembre 2026</a>
-    <a class="underline" href="/diagramas/archify/plataforma-20260929-204500.html">Versión histórica · 29 septiembre 2026</a>
-  </nav>
-
-  <figure class="mb-6 overflow-hidden rounded-[9px] border border-line bg-white">
-    <a href="/diagramas/archify/plataforma.html" aria-label="Abrir el diagrama interactivo del servidor">
-      <img
-        src="/diagramas/archify/plataforma-moodle-20261001.png"
-        width="2048"
-        height="1320"
-        loading="lazy"
-        alt="Arquitectura con Nginx, sitio principal, Astro, Keycloak, Moodle y Yet SQL LRS con PostgreSQL independiente."
-      />
-    </a>
-    <figcaption class="border-t border-line px-4 py-3 text-[10px] text-muted">
-      Arquitectura actualizada con Archify el 1 de octubre de 2026: Yet funciona detrás de Nginx,
-      con PostgreSQL independiente. La integración de Moodle con el LRS sigue pendiente.
-    </figcaption>
-  </figure>
+  <div class="mb-6 rounded-[9px] border border-line bg-white p-5">
+    <div class="font-mono text-[10px] tracking-[1px] text-brand">ENTRADA DE LA LAN · NGINX CENTRAL</div>
+    <div class="mt-3 flex flex-wrap items-center gap-3 text-[12px]">
+      <span class="rounded bg-sidebar px-3 py-2">Clientes de la LAN</span><span aria-hidden="true">→</span>
+      <span class="rounded bg-sidebar px-3 py-2">192.168.50.11 · Nginx · HTTPS</span><span aria-hidden="true">→</span>
+      <span class="rounded bg-sidebar px-3 py-2">minayao.site + doc.minayao.site</span>
+    </div>
+    <p class="mb-0 mt-4 text-[11px] text-muted">La infraestructura está disponible. Moodle, Keycloak y LRS siguen pendientes de migración.</p>
+    <a class="mt-3 inline-block text-[11px] text-brand underline" href="/legado/">Consultar arquitectura e inventario del servidor legado ↗</a>
+  </div>
 
   <div class="grid grid-cols-1 gap-7 lg:grid-cols-[1fr_1.02fr] max-sm:gap-5">
     <div class="overflow-hidden rounded-[9px] border border-line bg-white">
@@ -106,25 +94,21 @@ import { tree, guides } from '../data/platform';
         >
           <span>
             <span class="example-icon mr-3 inline-block font-mono text-[17px] text-brand transition-transform" aria-hidden="true">↳</span>
-            Ejemplo real: carpeta de Moodle
+            Ejemplo actual: configuración de monitoreo
           </span>
           <span class="font-mono text-[8px] tracking-[0.4px] text-[#758477] max-sm:ml-[27px] max-sm:block max-sm:text-[7px]">EJEMPLO</span>
         </summary>
         <div class="grid grid-cols-1 gap-7 border-t border-line p-5 md:grid-cols-2 max-sm:gap-5">
-          <pre class="m-0 overflow-auto font-mono text-[11px] leading-[1.9]">moodle/
-├── compose.yaml
-├── Dockerfile
-├── .env.example
-├── config/
-├── docker/
-├── releases/
-├── scripts/
-└── deploy-runbook.md</pre>
+          <pre class="m-0 overflow-auto font-mono text-[11px] leading-[1.9]">servicios/svc-monitoring/
+└── compose.yaml
+
+proyecto: monitoring
+restart: "no"
+contenedores: 3 apagados</pre>
           <p class="m-0 text-[12px] text-muted">
-            Estos archivos y carpetas se observaron en <code>/srv/plataforma/moodle/</code>. La instalación
-            también tiene un <code>.env</code> local que no se publica aquí. Moodle guarda código compartido,
-            archivos y PostgreSQL en volúmenes Docker.<br /><br />
-            <strong>La captura corresponde al estado del 30 de septiembre de 2026.</strong>
+            Uptime Kuma, Portainer y Glances se conservan sin ejecutar. Los datos siguen en
+            <code>monitoring_uptime_kuma_data</code> y <code>monitoring_portainer_data</code>.
+            Las carpetas de Moodle, Keycloak y LRS están preparadas y vacías.
           </p>
         </div>
       </details>
