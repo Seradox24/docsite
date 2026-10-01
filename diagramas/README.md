@@ -5,8 +5,8 @@ los copia a `dist/diagramas/archify/` al compilar:
 
 | Archivo | Origen local | Uso |
 | --- | --- | --- |
-| `plataforma.html` | `.archify/architecture-plataforma-arbol-20261001-100000/plataforma.html` | Actualizado el 01-10-2026; incluye Yet y PostgreSQL independiente |
-| `plataforma-arbol-20261001.png` | Captura Archify a 2048×1320, tema claro | Vista actual con Yet |
+| `plataforma.html` | `.archify/architecture-plataforma-espaciado-20261001-103000/plataforma.html` | Actualizado el 01-10-2026; incluye Yet y PostgreSQL independiente |
+| `plataforma-espaciado-20261001.png` | Captura Archify a 2048×1320, tema claro | Vista actual con Yet |
 | `plataforma-20260930.html` | Diagrama anterior archivado | Estado anterior a la instalación del LRS |
 | `plataforma-rutas-20260930.png` | Captura de Archify a 1440×900 | Vista fija del estado observado |
 | `plataforma-20260929-204500.html` | `.archify/architecture-plataforma-20260929-204500/plataforma.html` | Versión anterior |
@@ -34,7 +34,7 @@ No se dibuja una integración activa Moodle → Yet porque todavía está pendie
 
 - Candidato: `diagramas/plataforma-20261001.json`.
 - Evidencia fijada al commit `f5815b2daa2c79bddceaea092267e84878e30ef3` de docsite.
-- SHA-256 de especificación: `9130a767ae6768bfa61d7dd5338c565f350ea9fcc74a2afcc0b6502205671333`.
-- SHA-256 de HTML: `111562f4fb33565ce7c7c6452d4f973cb243beda8e283f9cf0f7081e2f3ea222`.
-- Recibo local: `.archify/architecture-plataforma-arbol-20261001-100000/plataforma.finalize.json`.
-- Capturas y revisión: `.archify/architecture-plataforma-arbol-20261001-100000/visual-check/`.
+- SHA-256 de especificación: `12a6ca3bcd261f158a35ab2293b721b1d2dae7afd579df6bdcb377ede57ba7a8`.
+- SHA-256 de HTML: `8cd5f6b7e01583a2b58754a2f8ab4e6a3f2092be61d2da13a617afee58b3ae89`.
+- Recibo local: `.archify/architecture-plataforma-espaciado-20261001-103000/review-2/plataforma.finalize.json`.
+- Capturas y revisión: `.archify/architecture-plataforma-espaciado-20261001-103000/visual-check/`.

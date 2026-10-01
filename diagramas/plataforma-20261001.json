@@ -3,7 +3,7 @@
   "diagram_type": "architecture",
   "meta": {
     "title": "Plataforma minayao.site · arquitectura descendente",
-    "output": ".archify/architecture-plataforma-arbol-20261001-100000/plataforma.html",
+    "output": ".archify/architecture-plataforma-espaciado-20261001-103000/plataforma.html",
     "quality_profile": "showcase",
     "locale": "es",
     "repository": {
@@ -458,7 +458,7 @@
       "label": "Usuarios y clientes",
       "sublabel": "Navegador / xAPI",
       "pos": [
-        480,
+        508,
         30
       ],
       "size": [
@@ -479,7 +479,7 @@
       "label": "Nginx del host",
       "sublabel": "TLS :443 / HTTP :80",
       "pos": [
-        480,
+        508,
         210
       ],
       "size": [
@@ -500,7 +500,7 @@
       "label": "Certbot",
       "sublabel": "Let's Encrypt / renovación",
       "pos": [
-        770,
+        798,
         210
       ],
       "size": [
@@ -542,7 +542,7 @@
       "label": "Documentación",
       "sublabel": "Astro compilado / public",
       "pos": [
-        250,
+        264,
         480
       ],
       "size": [
@@ -563,7 +563,7 @@
       "label": "Keycloak 26.7.4",
       "sublabel": "127.0.0.1:18081",
       "pos": [
-        480,
+        508,
         480
       ],
       "size": [
@@ -584,7 +584,7 @@
       "label": "PostgreSQL · SSO",
       "sublabel": "16 / volumen Docker",
       "pos": [
-        480,
+        508,
         700
       ],
       "size": [
@@ -605,7 +605,7 @@
       "label": "Moodle",
       "sublabel": "web / PHP / cron · :18080",
       "pos": [
-        710,
+        752,
         480
       ],
       "size": [
@@ -626,7 +626,7 @@
       "label": "PostgreSQL · Moodle",
       "sublabel": "16 / volumen Docker",
       "pos": [
-        710,
+        752,
         700
       ],
       "size": [
@@ -647,7 +647,7 @@
       "label": "Redis · Moodle",
       "sublabel": "7 / sesiones",
       "pos": [
-        710,
+        752,
         880
       ],
       "size": [
@@ -668,7 +668,7 @@
       "label": "Yet SQL LRS 0.9.7",
       "sublabel": "127.0.0.1:18083 / xAPI",
       "pos": [
-        940,
+        996,
         480
       ],
       "size": [
@@ -689,7 +689,7 @@
       "label": "PostgreSQL · Yet",
       "sublabel": "16.15 / bind mount",
       "pos": [
-        940,
+        996,
         700
       ],
       "size": [
@@ -713,7 +713,7 @@
         "identidad",
         "base_identidad"
       ],
-      "pad": 22
+      "pad": 18
     },
     {
       "kind": "region",
@@ -723,7 +723,7 @@
         "base_aula",
         "sesiones"
       ],
-      "pad": 22
+      "pad": 18
     },
     {
       "kind": "region",
@@ -732,7 +732,7 @@
         "registros",
         "base_registros"
       ],
-      "pad": 22
+      "pad": 18
     }
   ],
   "connections": [
@@ -759,7 +759,7 @@
       "toSide": "top",
       "via": [
         [
-          570,
+          598,
           370
         ],
         [
@@ -777,11 +777,11 @@
       "toSide": "top",
       "via": [
         [
-          570,
+          598,
           370
         ],
         [
-          340,
+          354,
           370
         ]
       ]
@@ -805,11 +805,11 @@
       "toSide": "top",
       "via": [
         [
-          570,
+          598,
           370
         ],
         [
-          800,
+          842,
           370
         ]
       ]
@@ -824,11 +824,11 @@
       "toSide": "top",
       "via": [
         [
-          570,
+          598,
           370
         ],
         [
-          1030,
+          1086,
           370
         ]
       ]
