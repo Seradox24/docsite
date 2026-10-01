@@ -39,10 +39,12 @@ Nginx cuando solo cambia el contenido estático. La clave debe estar desbloquead
 en el agente SSH. Los cambios de código se registran con Git y se suben a `origin`;
 las compilaciones no se incluyen en Git (`dist/` está ignorado).
 
-## Plantilla pública vacía
+## Documentación del servidor nuevo
 
-El sitio mantiene su estilo y navegación, con campos «Por completar» para
-estructura, inventario, convenciones y servicios. No presenta aplicaciones
-instaladas, ejemplos ni diagramas como contenido actual. La imagen de arquitectura
-queda pendiente de crear. Los registros operativos históricos siguen en `diagramas/`
-y fuera del sitio público. Los respaldos locales del legado se conservan.
+La presentación conserva el diseño original: árbol de carpetas, guías de
+organización, inventario, convenciones y accesos. Los datos corresponden a la VM:
+Nginx y documentación activos; tres componentes de monitoreo conservados y
+apagados; Moodle, Keycloak y LRS pendientes de migración, con carpetas vacías.
+La imagen de arquitectura permanece pendiente de crear. El respaldo legado
+se conserva fuera de la publicación. No se presentan servicios del VPS como
+instalaciones activas del destino.

@@ -1,13 +1,45 @@
+---
+import { inventory } from '../data/platform';
+---
+
 <section id="actual" class="mb-[47px] max-sm:mb-9">
-  <div class="mb-[23px]">
-    <div class="font-mono text-[10px] font-semibold tracking-[1.5px] text-brand">02 / INVENTARIO</div>
-    <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px]">Lo que existe hoy</h2>
-    <p class="mt-2 text-[11px] text-muted">Inventario pendiente de completar.</p>
+  <div class="mb-[23px] flex items-end justify-between gap-5 max-sm:mb-[18px] max-sm:block">
+    <div>
+      <div class="font-mono text-[10px] font-semibold tracking-[1.5px] text-brand max-sm:text-[8px]">
+        02 / INVENTARIO
+      </div>
+      <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px] max-sm:text-[24px]">Lo que existe hoy</h2>
+    </div>
+    <span class="text-[9px] text-muted max-sm:mt-2.5 max-sm:block">Actualizado: 1 oct 2026 · instantánea manual</span>
   </div>
-  
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-2"><div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Nombre del componente</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div>
-<div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Tipo de servicio</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div>
-<div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Ruta de instalación</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div>
-<div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Estado</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div>
-<div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Descripción</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div></div>
+
+  {
+    inventory.map((item) => (
+      <div class="flex items-center gap-[27px] border-b border-line py-[23px] max-lg:gap-[15px] max-sm:grid max-sm:grid-cols-[1fr_auto] max-sm:gap-3">
+        <div class="whitespace-nowrap text-[10px] max-sm:col-span-2">
+          <span class={item.badge === 'ACTIVO' ? 'status-dot' : 'tiny-dot'}></span>
+          <strong>{item.tag}</strong>
+        </div>
+        <div>
+          <h3 class="mb-[3px] text-[12px] font-semibold">{item.title}</h3>
+          <p class="m-0 text-[10px] text-muted max-sm:text-[11px]" set:html={item.body} />
+        </div>
+        <span class:list={["ml-auto rounded px-[7px] py-1 font-mono text-[8px]", item.badge === "ACTIVO" ? "bg-[#e1efe4] text-[#087055]" : "bg-[#f3ecdb] text-[#806327]"]}>
+          {item.badge}
+        </span>
+      </div>
+    ))
+  }
+
+  <div class="mt-4 flex gap-3 text-muted">
+    <span
+      class="mt-0.5 h-3.5 w-3.5 shrink-0 rounded-full border border-[#afbeb4] text-center text-[10px] leading-3"
+      aria-hidden="true">i</span
+    >
+    <p class="m-0 text-[10px] leading-[1.8] max-sm:text-[11px]">
+      <strong class="font-semibold text-[#4c6256]">Migración en preparación.</strong>
+      La existencia de una carpeta no implica una aplicación instalada. El monitoreo conserva
+      sus datos, pero permanece apagado. Esta página es una instantánea manual del servidor actual.
+    </p>
+  </div>
 </section>

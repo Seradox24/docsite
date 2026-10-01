@@ -1,11 +1,24 @@
+---
+import { principles } from '../data/platform';
+---
+
 <section id="convenciones" class="mb-[47px] max-sm:mb-9">
   <div class="mb-[23px]">
-    <div class="font-mono text-[10px] font-semibold tracking-[1.5px] text-brand">03 / CRITERIOS</div>
-    <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px]">Crecer con orden</h2>
-    <p class="mt-2 text-[11px] text-muted">Convenciones pendientes de definir.</p>
+    <div class="font-mono text-[10px] font-semibold tracking-[1.5px] text-brand max-sm:text-[8px]">
+      03 / CRITERIOS
+    </div>
+    <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px] max-sm:text-[24px]">Crecer con orden</h2>
   </div>
-  
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-2"><div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Convención de nombres</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div>
-<div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Persistencia</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div>
-<div class="rounded-[7px] border border-line bg-white p-5"><h3 class="mb-2 text-[12px] font-semibold">Documentación</h3><p class="m-0 text-[11px] text-muted">Por completar</p></div></div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3 max-sm:gap-[11px]">
+    {
+      principles.map((p) => (
+        <article class="rounded-[7px] border border-line bg-white p-[21px] max-sm:p-[19px]">
+          <span class="font-mono text-[10px] text-brand">{p.n}</span>
+          <h3 class="mb-2 mt-3 text-[12px] font-semibold max-sm:my-2 max-sm:text-[14px]">{p.title}</h3>
+          <p class="m-0 text-[11px] leading-[1.8] text-muted max-sm:text-[12px]" set:html={p.body} />
+        </article>
+      ))
+    }
+  </div>
 </section>
