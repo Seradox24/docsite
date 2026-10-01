@@ -3,7 +3,7 @@
   "diagram_type": "architecture",
   "meta": {
     "title": "Plataforma minayao.site · arquitectura descendente",
-    "output": ".archify/architecture-plataforma-espaciado-20261001-103000/plataforma.html",
+    "output": ".archify/architecture-moodle-marco-20261001-110000/plataforma.html",
     "quality_profile": "showcase",
     "locale": "es",
     "repository": {
@@ -723,7 +723,7 @@
         "base_aula",
         "sesiones"
       ],
-      "pad": 18
+      "pad": 26
     },
     {
       "kind": "region",
@@ -850,7 +850,23 @@
       "from": "aula",
       "to": "sesiones",
       "label": "sesiones",
-      "variant": "dashed"
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "right",
+      "via": [
+        [
+          948,
+          514
+        ],
+        [
+          948,
+          914
+        ]
+      ],
+      "labelAt": [
+        929,
+        805
+      ]
     },
     {
       "id": "sql_registros",
