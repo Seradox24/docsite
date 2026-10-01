@@ -26,11 +26,11 @@ mkdir "$base/releases/$release"
 tar -xzf "$base/$release.tar.gz" --no-same-owner --no-same-permissions -C "$base/releases/$release"
 chmod -R u=rwX,go=rX "$base/releases/$release"
 test -s "$base/releases/$release/index.html"
-test -s "$base/releases/$release/legado/index.html"
+grep -q 'Documentación por completar' "$base/releases/$release/index.html"
 ln -s "$base/releases/$release" "$base/public-$release"
 mv -Tf "$base/public-$release" "$base/public"
 rm -- "$base/$release.tar.gz"
-if ! curl --fail --silent --show-error --resolve doc.minayao.site:443:127.0.0.1 https://doc.minayao.site/ | grep -q 'Servidor actual'; then
+if ! curl --fail --silent --show-error --resolve doc.minayao.site:443:127.0.0.1 https://doc.minayao.site/ | grep -q 'Documentación por completar'; then
     ln -s "$previous" "$base/rollback-$release"
     mv -Tf "$base/rollback-$release" "$base/public"
     echo 'Verificacion fallida; se restauro la version anterior.'

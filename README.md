@@ -10,8 +10,7 @@ Respaldo previo a los cambios: `../docsite servidor legado 2026-10-01/`.
 Archivo: `../docsite-servidor-legado-2026-10-01.zip`.
 Incluye Git, fuentes, diagramas, configuración y dist; excluye node_modules y .astro.
 Integridad comprobada por archivo con SHA-256 y CRC del ZIP.
-La copia histórica publicada está en `/legado/`, marcada como VPS `147.93.132.78`.
-Describe el estado anterior, no servicios activos en la VM.
+El respaldo histórico se conserva localmente y en Git. No se publica en el sitio actual.
 
 ## Desarrollo
 
@@ -40,8 +39,10 @@ Nginx cuando solo cambia el contenido estático. La clave debe estar desbloquead
 en el agente SSH. Los cambios de código se registran con Git y se suben a `origin`;
 las compilaciones no se incluyen en Git (`dist/` está ignorado).
 
-## Estado inicial
+## Plantilla pública vacía
 
-Nginx y ambos sitios HTTPS activos. Uptime Kuma, Portainer y Glances apagados.
-Moodle, Keycloak y LRS pendientes de migración. Renovación TLS externa pendiente
-de automatizar; certificado válido hasta el 30 de diciembre de 2026.
+El sitio mantiene su estilo y navegación, con campos «Por completar» para
+estructura, inventario, convenciones y servicios. No presenta aplicaciones
+instaladas, ejemplos ni diagramas como contenido actual. La imagen de arquitectura
+queda pendiente de crear. Los registros operativos históricos siguen en `diagramas/`
+y fuera del sitio público. Los respaldos locales del legado se conservan.
