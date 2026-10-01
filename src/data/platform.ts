@@ -23,12 +23,9 @@ export interface TreeNode {
 }
 
 export const tree: TreeNode[] = [
-  { branch: '├──', name: 'microservicios/', note: 'reservado', variant: 'folder' },
   { branch: '├──', name: 'servicios/', variant: 'folder' },
-  { branch: '│   ├──', name: 'svc-keycloak/', tag: 'PENDIENTE', variant: 'child' },
-  { branch: '│   ├──', name: 'svc-lrsql/', tag: 'PENDIENTE', variant: 'child' },
-  { branch: '│   └──', name: 'svc-monitoring/', tag: 'APAGADO', variant: 'child' },
-  { branch: '├──', name: 'moodle/', tag: 'PENDIENTE', variant: 'folder' },
+  { branch: '│   └──', name: 'svc-monitoring/', tag: 'ACTIVO', tone: 'green', variant: 'child' },
+  { branch: '│       └──', name: 'compose.yaml', variant: 'child' },
   { branch: '├──', name: 'documentacion/', tag: 'HTTPS', tone: 'green', variant: 'folder', highlight: true },
   { branch: '│   ├──', name: 'contenido/', variant: 'child' },
   { branch: '│   ├──', name: 'releases/', variant: 'child' },
@@ -36,7 +33,6 @@ export const tree: TreeNode[] = [
   { branch: '├──', name: 'infraestructura/', variant: 'folder' },
   { branch: '│   ├──', name: 'nginx/', variant: 'child' },
   { branch: '│   └──', name: 'tls/', variant: 'child' },
-  { branch: '├──', name: 'datos/' },
   { branch: '├──', name: 'secretos/', tag: 'PRIVADO' },
   { branch: '├──', name: 'respaldos/' },
   { branch: '└──', name: 'operaciones/', variant: 'folder' },
@@ -49,10 +45,10 @@ export interface Guide {
 }
 
 export const guides: Guide[] = [
-  { n: '01', title: 'Una base para migrar paso a paso', body: '<code>moodle/</code>, <code>servicios/svc-keycloak/</code> y <code>servicios/svc-lrsql/</code> son carpetas preparadas. Las aplicaciones del VPS aún no se han migrado.' },
-  { n: '02', title: 'Entrada central con Nginx', body: '<code>minayao.site</code> muestra la página de mantenimiento y <code>doc.minayao.site</code> sirve esta documentación. Configuraciones en <code>infraestructura/nginx/sites-available/</code>, enlazadas desde <code>/etc/nginx/sites-enabled/</code>.' },
-  { n: '03', title: 'Monitoreo conservado y apagado', body: '<code>servicios/svc-monitoring/compose.yaml</code> conserva Uptime Kuma, Portainer y Glances. Proyecto <code>monitoring</code>, política <code>restart: no</code>. Los dos volúmenes de datos siguen en Docker.' },
-  { n: '04', title: 'Persistencia y operación privadas', body: '<code>datos/</code>, <code>secretos/</code>, <code>respaldos/</code> y <code>operaciones/</code> separan el estado del código. Las carpetas de las aplicaciones pendientes están vacías; los secretos no se publican.' },
+  { n: '01', title: 'Aplicaciones de monitoreo', body: '<code>servicios/svc-monitoring/compose.yaml</code> agrupa Uptime Kuma, Portainer y Glances. Los tres funcionan en Docker con reinicio automático <code>unless-stopped</code>.' },
+  { n: '02', title: 'Sitios y documentación', body: 'Nginx sirve <code>minayao.site</code> y <code>doc.minayao.site</code> mediante HTTPS. Las compilaciones se envían por SSH a <code>documentacion/releases/</code>; <code>public/</code> apunta a la versión activa.' },
+  { n: '03', title: 'Datos fuera del código', body: 'Kuma conserva <code>monitoring_uptime_kuma_data</code> y Portainer <code>monitoring_portainer_data</code>. Los volúmenes residen en <code>/var/lib/docker/volumes/</code> y se mantienen al actualizar los contenedores.' },
+  { n: '04', title: 'Operación del servidor', body: 'Nginx central se configura en <code>infraestructura/nginx/sites-available/</code>. Los certificados permanecen privados en <code>infraestructura/tls/</code>. Respaldos y registros operativos quedan fuera de la documentación pública.' },
 ];
 
 export interface Metric {
@@ -65,8 +61,8 @@ export interface Metric {
 
 export const metrics: Metric[] = [
   { label: 'SITIOS HTTPS', value: '02', unit: 'en LAN' },
-  { label: 'MONITOREO', value: '03', unit: 'apagados' },
-  { label: 'MIGRACIÓN', text: 'Preparada', dot: 'tiny' },
+  { label: 'MONITOREO', value: '03', unit: 'activos' },
+  { label: 'SERVIDOR', text: 'LAN', dot: 'status' },
   { label: 'DOCUMENTACIÓN', text: 'Activa', dot: 'status' },
 ];
 
@@ -78,11 +74,11 @@ export interface InventoryItem {
 }
 
 export const inventory: InventoryItem[] = [
-  { tag: 'INFRAESTRUCTURA', title: 'Nginx central · moodlenewen', body: 'Ubuntu 26.04.1 LTS en <code>192.168.50.11</code>. Nginx 1.28.3 sirve dos dominios en la LAN; HTTP redirige a HTTPS. Certificado nuevo válido hasta el 30 de diciembre de 2026.', badge: 'ACTIVO' },
-  { tag: 'DOCUMENTACIÓN', title: 'Centro de documentación actual', body: 'Astro compilado en <code>documentacion/releases/</code>; <code>documentacion/public/</code> apunta a la versión publicada. El respaldo del servidor legado se conserva fuera del sitio público.', badge: 'ACTIVO' },
-  { tag: 'MONITOREO', title: 'Uptime Kuma · Portainer · Glances', body: 'Tres contenedores creados y sin ejecutar; arranque automático deshabilitado. Puertos reservados: 3001, 9443 HTTPS y 61208. Datos de Kuma y Portainer conservados en sus volúmenes Docker.', badge: 'APAGADO' },
-  { tag: 'MIGRACIÓN', title: 'Moodle · Keycloak · Yet SQL LRS', body: 'Rutas preparadas para recibir las aplicaciones. No hay contenedores, bases restauradas ni datos importados de estos servicios en la VM nueva.', badge: 'PENDIENTE' },
-  { tag: 'TLS', title: 'Renovación desde un equipo con Internet', body: 'Clave privada nueva conservada exclusivamente en la VM. La renovación usa CSR y validación DNS desde un equipo externo; todavía no está automatizada.', badge: 'PENDIENTE' },
+  { tag: 'INFRAESTRUCTURA', title: 'Nginx central · moodlenewen', body: 'Ubuntu 26.04.1 LTS en <code>192.168.50.11</code>. Nginx 1.28.3 sirve dos dominios en la LAN; HTTP redirige a HTTPS. Certificado válido hasta el 30 de diciembre de 2026.', badge: 'ACTIVO' },
+  { tag: 'DOCUMENTACIÓN', title: 'Centro de documentación', body: 'Astro compilado y publicado por SSH. <code>documentacion/public/</code> apunta a la versión activa en <code>documentacion/releases/</code>; cada publicación conserva la versión anterior.', badge: 'ACTIVO' },
+  { tag: 'MONITOREO', title: 'Uptime Kuma', body: 'Monitoreo de disponibilidad. Contenedor saludable y datos persistentes conservados. Acceso LAN en <code>192.168.50.11:3001</code>.', badge: 'ACTIVO' },
+  { tag: 'ADMINISTRACIÓN', title: 'Portainer', body: 'Administración de Docker mediante interfaz HTTPS en <code>192.168.50.11:9443</code>. Conserva su volumen de datos y la conexión al Docker del host.', badge: 'ACTIVO' },
+  { tag: 'RECURSOS', title: 'Glances', body: 'Panel de CPU, memoria, disco y contenedores. Interfaz web disponible en <code>192.168.50.11:61208</code>.', badge: 'ACTIVO' },
 ];
 
 export interface Principle {
@@ -118,6 +114,9 @@ export interface Service {
 }
 
 export const services: Service[] = [
-  { tag: 'SITIO PRINCIPAL', title: 'Estamos trabajando para usted', body: 'Página de mantenimiento servida por el Nginx central de la VM.', href: 'https://minayao.site', cta: 'Abrir' },
-  { tag: 'DOCUMENTACIÓN', title: 'Servidor actual · LAN', body: 'Estructura, estado observado y próximos pasos de la migración a moodlenewen.', href: 'https://doc.minayao.site', cta: 'Abrir' },
+  { tag: 'SITIO PRINCIPAL', title: 'Estamos trabajando para usted', body: 'Página de mantenimiento servida por el Nginx central.', href: 'https://minayao.site', cta: 'Abrir' },
+  { tag: 'DOCUMENTACIÓN', title: 'Servidor actual · LAN', body: 'Estructura y servicios instalados en moodlenewen.', href: 'https://doc.minayao.site', cta: 'Abrir' },
+  { tag: 'DISPONIBILIDAD', title: 'Uptime Kuma', body: 'Panel de monitoreo de disponibilidad en la LAN.', href: 'http://192.168.50.11:3001', cta: 'Abrir' },
+  { tag: 'DOCKER', title: 'Portainer', body: 'Administración de contenedores mediante HTTPS.', href: 'https://192.168.50.11:9443', cta: 'Abrir' },
+  { tag: 'RECURSOS', title: 'Glances', body: 'Estado de los recursos del servidor.', href: 'http://192.168.50.11:61208', cta: 'Abrir' },
 ];

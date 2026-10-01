@@ -183,3 +183,18 @@ Al finalizar, el equipo Windows todavía resolvía `doc.minayao.site` a la IP
 del VPS, incluso después de limpiar su caché DNS. Una solicitud dirigida
 explícitamente a `192.168.50.11` sí devolvía la nueva documentación. El DNS usado
 por el equipo o la LAN debe apuntar al destino para visualizar la actualización.
+
+## Monitoreo activado
+
+El 1 de octubre se activaron Uptime Kuma, Portainer y Glances desde
+`/srv/plataforma/servicios/svc-monitoring/compose.yaml`. Proyecto `monitoring`,
+política `unless-stopped`. Puertos publicados exclusivamente en la IP LAN:
+3001, 9443 HTTPS y 61208. Los volúmenes de Kuma y Portainer se conservaron.
+Kuma aparece saludable; las tres interfaces responden. Portainer sirve HTTPS
+con su certificado propio, independiente del certificado de los dominios Nginx.
+
+La documentación pública muestra solo instalaciones actuales. Se retiraron las
+referencias a aplicaciones por migrar y el espacio para el diagrama sin crear.
+El árbol publicado presenta `servicios/svc-monitoring/` como servicio activo.
+Una copia de la configuración se mantiene en `configuraciones/svc-monitoring/`
+dentro del repositorio. Este registro conserva también las fases anteriores.

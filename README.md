@@ -41,10 +41,10 @@ las compilaciones no se incluyen en Git (`dist/` está ignorado).
 
 ## Documentación del servidor nuevo
 
-La presentación conserva el diseño original: árbol de carpetas, guías de
-organización, inventario, convenciones y accesos. Los datos corresponden a la VM:
-Nginx y documentación activos; tres componentes de monitoreo conservados y
-apagados; Moodle, Keycloak y LRS pendientes de migración, con carpetas vacías.
-La imagen de arquitectura permanece pendiente de crear. El respaldo legado
-se conserva fuera de la publicación. No se presentan servicios del VPS como
-instalaciones activas del destino.
+La página muestra únicamente servicios instalados: Nginx, documentación,
+Uptime Kuma, Portainer y Glances. El monitoreo funciona desde
+`/srv/plataforma/servicios/svc-monitoring/compose.yaml`, proyecto `monitoring`,
+con `restart: unless-stopped` y puertos publicados en `192.168.50.11`.
+La configuración conservada está en `configuraciones/svc-monitoring/`.
+Los servicios no instalados y la imagen de arquitectura no se publican.
+Los registros históricos se mantienen fuera del sitio público.

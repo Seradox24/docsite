@@ -17,12 +17,7 @@ import { tree, guides } from '../data/platform';
     </p>
   </div>
 
-  <div class="mb-6 grid min-h-[190px] place-content-center rounded-[9px] border border-dashed border-line bg-white p-6 text-center">
-    <span class="text-[12px] font-semibold">Imagen de arquitectura</span>
-    <span class="mt-2 text-[11px] text-muted">Pendiente de crear para el servidor nuevo.</span>
-  </div>
-
-  <div class="grid grid-cols-1 gap-7 lg:grid-cols-[1fr_1.02fr] max-sm:gap-5">
+<div class="grid grid-cols-1 gap-7 lg:grid-cols-[1fr_1.02fr] max-sm:gap-5">
     <div class="overflow-hidden rounded-[9px] border border-line bg-white">
       <div class="flex items-center gap-2.5 border-b border-line bg-[#eff3ef] px-5 py-4 font-mono text-[12px]">
         <span class="text-[22px] leading-none text-brand" aria-hidden="true">▱</span>
@@ -97,12 +92,12 @@ import { tree, guides } from '../data/platform';
 └── compose.yaml
 
 proyecto: monitoring
-restart: "no"
-contenedores: 3 apagados</pre>
+restart: unless-stopped
+contenedores: 3 activos</pre>
           <p class="m-0 text-[12px] text-muted">
-            Uptime Kuma, Portainer y Glances se conservan sin ejecutar. Los datos siguen en
+            Uptime Kuma, Portainer y Glances están en ejecución. Los datos siguen en
             <code>monitoring_uptime_kuma_data</code> y <code>monitoring_portainer_data</code>.
-            Las carpetas de Moodle, Keycloak y LRS están preparadas y vacías.
+            Los puertos de las interfaces se publican solo en la IP LAN del servidor.
           </p>
         </div>
       </details>
