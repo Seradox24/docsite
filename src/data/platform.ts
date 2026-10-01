@@ -173,7 +173,7 @@ export const services: Service[] = [
   {
     tag: 'ARQUITECTURA',
     title: 'Diagrama interactivo del servidor',
-    body: 'Nginx, sitios publicados, SSO Keycloak y el stack de Moodle en un plano interactivo.',
+    body: 'Nginx, sitios publicados, Keycloak, Moodle y Yet SQL LRS con sus bases independientes en un plano interactivo.',
     href: '/diagramas/archify/plataforma.html',
     cta: 'Ver diagrama',
   },

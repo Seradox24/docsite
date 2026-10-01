@@ -82,8 +82,8 @@ Después del push, revisa que **Build and deploy** termine correctamente y visit
 - https://doc.minayao.site/diagramas/archify/plataforma-rutas-20260930.png
 - https://doc.minayao.site/diagramas/archify/plataforma-20260929-204500.html
 
-El inventario del 1 de octubre incluye Keycloak, Yet SQL LRS y Moodle. Los
-diagramas del 30 de septiembre se conservan como históricos, anteriores al LRS.
+El inventario y el diagrama Archify del 1 de octubre incluyen Keycloak, Yet SQL LRS y Moodle.
+El diagrama del 30 de septiembre está archivado en `plataforma-20260930.html`.
 La documentación pública enlaza la administración y el repositorio de Yet;
 las contraseñas y claves xAPI se mantienen únicamente en el archivo privado
 de secretos del servidor.

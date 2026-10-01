@@ -20,4 +20,6 @@ Moodle y Keycloak continuaron saludables; integración con el LRS pendiente.
 [Registro completo y correcciones del repositorio Yet](https://github.com/Seradox24/Yet/blob/main/docs/installation-2026-10-01.md).
 
 Los diagramas y capturas del 30 de septiembre se conservan como históricos.
+El diagrama actual `public/diagramas/archify/plataforma.html` incluye Yet y
+su PostgreSQL; captura: `plataforma-yet-20261001.png`.
 Esta actualización no contiene contraseñas, claves API ni datos de aprendizaje.
