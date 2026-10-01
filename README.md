@@ -38,6 +38,10 @@ si falla la comprobación, restaura el enlace anterior. No requiere recargar
 Nginx cuando solo cambia el contenido estático. La clave debe estar desbloqueada
 en el agente SSH. Los cambios de código se registran con Git y se suben a `origin`;
 las compilaciones no se incluyen en Git (`dist/` está ignorado).
+La publicación compara SHA-256 de `dist/index.html`, del archivo transferido y
+de la respuesta HTTPS servida por Nginx. Si no coinciden, restaura la versión anterior.
+El único contenido enviado es `dist/`; fuentes, Git y configuraciones operativas
+permanecen fuera del directorio público.
 
 ## Documentación del servidor nuevo
 

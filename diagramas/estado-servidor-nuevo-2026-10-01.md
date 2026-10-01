@@ -223,3 +223,20 @@ se mantienen. La configuración agrupada anterior se guardó en
 Los Compose actuales están en `configuraciones/` del repositorio, por servicio.
 Los datos gestionados por Docker continúan en `/var/lib/docker/volumes/`;
 las carpetas centrales de datos por servicio no implican una copia de esos datos.
+
+## Auditoría de la publicación
+
+Se compararon los ocho archivos de `dist/` con la versión publicada por Nginx:
+todas las huellas SHA-256 coincidieron. El HTML actual no contiene imágenes
+de arquitectura ni referencias a capturas del legado. El VPS conserva su página
+histórica, que sí contiene `plataforma-moodle-20261001.png`. Una pestaña nueva
+del navegador integrado seguía mostrando esa página del VPS, aunque una petición
+HTTPS desde el equipo por curl llegaba a la VM y coincidía con la compilación local.
+
+Nginx del destino ahora devuelve `X-Docsite-Server: moodlenewen` y exige revalidar
+HTML mediante `Cache-Control: no-cache, max-age=0, must-revalidate`. El script
+de despliegue compara SHA-256 de `dist/index.html`, el archivo transferido y
+la respuesta HTTPS; restaura la publicación anterior si no coinciden.
+Únicamente se transfiere el contenido de `dist/`; el repositorio, las fuentes
+y las configuraciones operativas no se publican. El workflow de GitHub solo
+compila; no despliega al VPS antiguo.
