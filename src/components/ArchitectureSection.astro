@@ -17,7 +17,7 @@ import { tree, guides } from '../data/platform';
     </p>
   </div>
 
-<div class="grid grid-cols-1 gap-7 lg:grid-cols-[1fr_1.02fr] max-sm:gap-5">
+  <div class="grid grid-cols-1 gap-7 lg:grid-cols-[1fr_1.02fr] max-sm:gap-5">
     <div class="overflow-hidden rounded-[9px] border border-line bg-white">
       <div class="flex items-center gap-2.5 border-b border-line bg-[#eff3ef] px-5 py-4 font-mono text-[12px]">
         <span class="text-[22px] leading-none text-brand" aria-hidden="true">▱</span>
@@ -37,28 +37,18 @@ import { tree, guides } from '../data/platform';
               ]}
             >
               <span class="whitespace-pre text-[#afbeb3]" aria-hidden="true">{node.branch}</span>
+              <span class="text-brand" aria-hidden="true">▱</span>
               <span class:list={[
                 node.variant === 'folder' && 'font-[650]',
                 node.variant === 'muted' && 'text-[10px] text-[#7a877e]',
               ]}>{node.name}</span>
-              {node.tag && (
-                <span
-                  class:list={[
-                    'ml-auto rounded-[3px] px-[5px] py-px font-mono text-[7px] leading-[1.8] max-sm:text-[8px]',
-                    node.tone === 'green' ? 'bg-[#d8ece1] text-[#087055]' : 'bg-[#eef2f6] text-[#63708a]',
-                  ]}
-                >
-                  {node.tag}
-                </span>
-              )}
-              {node.note && <span class="ml-auto text-[10px] text-[#7a877e]">{node.note}</span>}
             </div>
           ))
         }
       </div>
 
       <div class="border-t border-[#edf1ec] px-[18px] py-[13px] text-[9px] text-muted">
-        <span class="mr-1.5" aria-hidden="true">↳</span> Inventario de carpetas; su presencia no implica que cada una tenga servicios activos.
+        <span class="mr-1.5" aria-hidden="true">↳</span> Solo directorios reales. La barra final indica una carpeta; public/ enlaza al directorio de la versión publicada.
       </div>
     </div>
 
@@ -77,30 +67,7 @@ import { tree, guides } from '../data/platform';
         }
       </div>
 
-      <details class="example mt-[18px] rounded-[7px] border border-line bg-white">
-        <summary
-          class="flex list-none items-center justify-between gap-3 px-[18px] py-[14px] text-[11px] font-[550] [&::-webkit-details-marker]:hidden max-sm:block"
-        >
-          <span>
-            <span class="example-icon mr-3 inline-block font-mono text-[17px] text-brand transition-transform" aria-hidden="true">↳</span>
-            Ejemplo actual: configuración de monitoreo
-          </span>
-          <span class="font-mono text-[8px] tracking-[0.4px] text-[#758477] max-sm:ml-[27px] max-sm:block max-sm:text-[7px]">EJEMPLO</span>
-        </summary>
-        <div class="grid grid-cols-1 gap-7 border-t border-line p-5 md:grid-cols-2 max-sm:gap-5">
-          <pre class="m-0 overflow-auto font-mono text-[11px] leading-[1.9]">servicios/svc-monitoring/
-└── compose.yaml
 
-proyecto: monitoring
-restart: unless-stopped
-contenedores: 3 activos</pre>
-          <p class="m-0 text-[12px] text-muted">
-            Uptime Kuma, Portainer y Glances están en ejecución. Los datos siguen en
-            <code>monitoring_uptime_kuma_data</code> y <code>monitoring_portainer_data</code>.
-            Los puertos de las interfaces se publican solo en la IP LAN del servidor.
-          </p>
-        </div>
-      </details>
     </div>
   </div>
 </section>

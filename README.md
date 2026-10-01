@@ -43,8 +43,13 @@ las compilaciones no se incluyen en Git (`dist/` está ignorado).
 
 La página muestra únicamente servicios instalados: Nginx, documentación,
 Uptime Kuma, Portainer y Glances. El monitoreo funciona desde
-`/srv/plataforma/servicios/svc-monitoring/compose.yaml`, proyecto `monitoring`,
+tres directorios independientes: `servicios/svc-uptime-kuma/`,
+`servicios/svc-portainer/` y `servicios/svc-glances/`,
 con `restart: unless-stopped` y puertos publicados en `192.168.50.11`.
-La configuración conservada está en `configuraciones/svc-monitoring/`.
+La configuración conservada está en `configuraciones/svc-uptime-kuma/`, `configuraciones/svc-portainer/` y
+`configuraciones/svc-glances/`.
 Los servicios no instalados y la imagen de arquitectura no se publican.
 Los registros históricos se mantienen fuera del sitio público.
+
+La sección Organización muestra las carpetas reales, incluidas las reservas vacías
+de Moodle, Keycloak y Yet. No muestra archivos Compose ni etiquetas de estado.

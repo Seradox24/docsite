@@ -1,0 +1,14 @@
+name: svc-uptime-kuma
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "192.168.50.11:3001:3001"
+    volumes:
+      - uptime_kuma_data:/app/data
+volumes:
+  uptime_kuma_data:
+    external: true
+    name: monitoring_uptime_kuma_data

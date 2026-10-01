@@ -23,18 +23,25 @@ export interface TreeNode {
 }
 
 export const tree: TreeNode[] = [
+  { branch: '├──', name: 'microservicios/', variant: 'folder' },
   { branch: '├──', name: 'servicios/', variant: 'folder' },
-  { branch: '│   └──', name: 'svc-monitoring/', tag: 'ACTIVO', tone: 'green', variant: 'child' },
-  { branch: '│       └──', name: 'compose.yaml', variant: 'child' },
-  { branch: '├──', name: 'documentacion/', tag: 'HTTPS', tone: 'green', variant: 'folder', highlight: true },
+  { branch: '│   ├──', name: 'svc-glances/', variant: 'child' },
+  { branch: '│   ├──', name: 'svc-keycloak/', variant: 'child' },
+  { branch: '│   ├──', name: 'svc-lrsql/', variant: 'child' },
+  { branch: '│   ├──', name: 'svc-portainer/', variant: 'child' },
+  { branch: '│   └──', name: 'svc-uptime-kuma/', variant: 'child' },
+  { branch: '├──', name: 'moodle/', variant: 'folder' },
+  { branch: '├──', name: 'documentacion/', variant: 'folder' },
   { branch: '│   ├──', name: 'contenido/', variant: 'child' },
   { branch: '│   ├──', name: 'releases/', variant: 'child' },
-  { branch: '│   └──', name: 'public/', note: 'enlace a versión activa', variant: 'child' },
+  { branch: '│   └──', name: 'public/', variant: 'child' },
   { branch: '├──', name: 'infraestructura/', variant: 'folder' },
+  { branch: '│   ├──', name: 'docker/', variant: 'child' },
   { branch: '│   ├──', name: 'nginx/', variant: 'child' },
   { branch: '│   └──', name: 'tls/', variant: 'child' },
-  { branch: '├──', name: 'secretos/', tag: 'PRIVADO' },
-  { branch: '├──', name: 'respaldos/' },
+  { branch: '├──', name: 'datos/', variant: 'folder' },
+  { branch: '├──', name: 'secretos/', variant: 'folder' },
+  { branch: '├──', name: 'respaldos/', variant: 'folder' },
   { branch: '└──', name: 'operaciones/', variant: 'folder' },
 ];
 
@@ -45,10 +52,10 @@ export interface Guide {
 }
 
 export const guides: Guide[] = [
-  { n: '01', title: 'Aplicaciones de monitoreo', body: '<code>servicios/svc-monitoring/compose.yaml</code> agrupa Uptime Kuma, Portainer y Glances. Los tres funcionan en Docker con reinicio automático <code>unless-stopped</code>.' },
-  { n: '02', title: 'Sitios y documentación', body: 'Nginx sirve <code>minayao.site</code> y <code>doc.minayao.site</code> mediante HTTPS. Las compilaciones se envían por SSH a <code>documentacion/releases/</code>; <code>public/</code> apunta a la versión activa.' },
-  { n: '03', title: 'Datos fuera del código', body: 'Kuma conserva <code>monitoring_uptime_kuma_data</code> y Portainer <code>monitoring_portainer_data</code>. Los volúmenes residen en <code>/var/lib/docker/volumes/</code> y se mantienen al actualizar los contenedores.' },
-  { n: '04', title: 'Operación del servidor', body: 'Nginx central se configura en <code>infraestructura/nginx/sites-available/</code>. Los certificados permanecen privados en <code>infraestructura/tls/</code>. Respaldos y registros operativos quedan fuera de la documentación pública.' },
+  { n: '01', title: 'Una carpeta por servicio', body: 'Uptime Kuma, Portainer y Glances tienen sus propios directorios en <code>servicios/</code>, cada uno con configuración Docker independiente. <code>svc-keycloak/</code> y <code>svc-lrsql/</code> son directorios vacíos; no contienen aplicaciones instaladas.' },
+  { n: '02', title: 'Moodle y documentación', body: '<code>moodle/</code> existe como directorio vacío. La documentación usa <code>contenido/</code>, <code>releases/</code> y <code>public/</code>; este último es un enlace al directorio de la compilación activa.' },
+  { n: '03', title: 'Datos y configuración separados', body: '<code>datos/</code>, <code>secretos/</code> y <code>respaldos/</code> siguen la organización del legado. Los datos activos de Kuma y Portainer permanecen en sus volúmenes Docker bajo <code>/var/lib/docker/volumes/</code>; no se presentan como archivos trasladados a <code>datos/</code>.' },
+  { n: '04', title: 'Infraestructura y operación', body: '<code>infraestructura/</code> contiene <code>docker/</code>, <code>nginx/</code> y <code>tls/</code>. <code>operaciones/</code> reúne procedimientos, scripts y registros por servicio. El árbol muestra directorios reales; una carpeta no implica una instalación activa.' },
 ];
 
 export interface Metric {

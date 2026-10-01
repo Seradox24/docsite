@@ -198,3 +198,28 @@ referencias a aplicaciones por migrar y el espacio para el diagrama sin crear.
 El árbol publicado presenta `servicios/svc-monitoring/` como servicio activo.
 Una copia de la configuración se mantiene en `configuraciones/svc-monitoring/`
 dentro del repositorio. Este registro conserva también las fases anteriores.
+
+## Organización contrastada con el legado
+
+Se inspeccionaron por SSH las carpetas reales del VPS y del destino. La sección
+01 ahora muestra solo directorios, sin estados ni archivos. Incluye `moodle/`,
+`microservicios/`, `datos/` y los espacios `svc-keycloak/` y `svc-lrsql/` que
+existen vacíos. Su existencia no se presenta como una aplicación instalada.
+Se añadieron los directorios del legado que faltaban: `infraestructura/docker/`,
+`operaciones/runbooks/`, `operaciones/scripts/` y grupos de datos, secretos y
+respaldos de microservicios.
+
+El monitoreo se separó en tres proyectos independientes:
+
+- `/srv/plataforma/servicios/svc-uptime-kuma/`
+- `/srv/plataforma/servicios/svc-portainer/`
+- `/srv/plataforma/servicios/svc-glances/`
+
+Cada carpeta contiene su propio Compose y README. Los dos volúmenes originales
+se declararon externos con nombre explícito y se conservaron. Cada servicio
+tiene red independiente; nombres de contenedor, puertos LAN y reinicio automático
+se mantienen. La configuración agrupada anterior se guardó en
+`respaldos/servicios/monitoring-antes-separacion/` y se retiró de `servicios/`.
+Los Compose actuales están en `configuraciones/` del repositorio, por servicio.
+Los datos gestionados por Docker continúan en `/var/lib/docker/volumes/`;
+las carpetas centrales de datos por servicio no implican una copia de esos datos.
