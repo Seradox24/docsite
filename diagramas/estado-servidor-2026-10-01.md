@@ -21,5 +21,5 @@ Moodle y Keycloak continuaron saludables; integración con el LRS pendiente.
 
 Los diagramas y capturas del 30 de septiembre se conservan como históricos.
 El diagrama actual `public/diagramas/archify/plataforma.html` incluye Yet y
-su PostgreSQL; captura: `plataforma-yet-20261001.png`.
+su PostgreSQL; captura: `plataforma-arbol-20261001.png`.
 Esta actualización no contiene contraseñas, claves API ni datos de aprendizaje.

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.0.1">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>Plataforma minayao.site · 1 octubre 2026 · Diagrama</title>
+  <title>Plataforma minayao.site · arquitectura descendente · Diagrama</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -4978,7 +4978,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="PLANO / REV 01"
            data-preset-badge-editorial="EDITORIAL / NOTA DE CAMPO">
         <div class="pulse-dot"></div>
-        <h1>Plataforma minayao.site · 1 octubre 2026</h1>
+        <h1>Plataforma minayao.site · arquitectura descendente</h1>
       </div>
     </div>
 
@@ -4987,8 +4987,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / LÁMINA 04">
-      <svg viewBox="0 0 1212 1226" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
-        <title id="archify-diagram-title">Plataforma minayao.site · 1 octubre 2026</title>
+      <svg viewBox="0 0 1182 1036" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+        <title id="archify-diagram-title">Plataforma minayao.site · arquitectura descendente</title>
         <desc id="archify-diagram-description">Un diagrama de arquitectura generado por Archify.</desc>
         <!-- Definitions -->
         <defs>
@@ -5013,292 +5013,280 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Boundaries (behind everything) -->
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Docker · svc-keycloak" x="628" y="456" width="544" height="112" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Docker · svc-keycloak" x="458" y="456" width="224" height="332" rx="12" class="c-region" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="Docker · lms-moodle" x="628" y="686" width="544" height="242" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="Docker · lms-moodle" x="688" y="456" width="224" height="512" rx="12" class="c-region" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="Docker · yet-lrsql / red privada" x="628" y="1046" width="544" height="112" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="Docker · yet-lrsql" x="918" y="456" width="224" height="332" rx="12" class="c-region" stroke-width="1"/>
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 195 513 L 320 513" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="usuarios" data-edge-to="entrada" data-edge-label="HTTPS" data-edge-key="0" data-edge-id="acceso" data-composition-points="195,513;320,513" data-composition-crossover="halo" data-composition-independent="true" d="M 195 513 L 320 513" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 570 98 L 570 210" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="usuarios" data-edge-to="entrada" data-edge-label="HTTPS" data-edge-key="0" data-edge-id="acceso" data-composition-points="570,98;570,210" data-composition-crossover="halo" data-composition-independent="true" d="M 570 98 L 570 210" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 403 206 L 403 460" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="tls" data-edge-to="entrada" data-edge-label="TLS / recarga" data-edge-key="1" data-edge-id="certificados" data-composition-points="403,206;403,460" data-composition-crossover="halo" data-composition-independent="true" d="M 403 206 L 403 460" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 770 244 L 660 244" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="tls" data-edge-to="entrada" data-edge-label="TLS / recarga" data-edge-key="1" data-edge-id="certificados" data-composition-points="770,244;660,244" data-composition-crossover="halo" data-composition-independent="true" d="M 770 244 L 660 244" class="a-security" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
         </g>
-        <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 417 460 L 417 269 Q 417 261 425 261 L 737 261 Q 745 261 745 253 L 745 158" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="entrada" data-edge-to="principal" data-edge-label="minayao.site" data-edge-key="2" data-edge-id="web" data-composition-points="417,460;417,261;745,261;745,158" data-composition-crossover="halo" data-composition-independent="true" d="M 417 460 L 417 269 Q 417 261 425 261 L 737 261 Q 745 261 745 253 L 745 158" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 500 499 L 618 499 Q 626 499 626 491 L 626 312 Q 626 304 634 304 L 650 304" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="entrada" data-edge-to="documentacion" data-edge-label="doc.minayao.site" data-edge-key="3" data-edge-id="docs" data-composition-points="500,499;626,499;626,304;650,304" data-composition-crossover="halo" data-composition-independent="true" d="M 500 499 L 618 499 Q 626 499 626 491 L 626 312 Q 626 304 634 304 L 650 304" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-        </g>
+        <path data-edge-from="entrada" data-edge-to="principal" data-edge-label="estático" data-edge-key="2" data-edge-id="web" data-composition-points="570,278;570,370;110,370;110,480" d="M 570 278 L 570 362 Q 570 370 562 370 L 118 370 Q 110 370 110 378 L 110 480" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="entrada" data-edge-to="documentacion" data-edge-label="estático" data-edge-key="3" data-edge-id="docs" data-composition-points="570,278;570,370;340,370;340,480" d="M 570 278 L 570 362 Q 570 370 562 370 L 348 370 Q 340 370 340 378 L 340 480" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 500 483.95 L 567 483.95 Q 575 483.95 575 491.95 L 575 506 Q 575 514 583 514 L 650 514" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="entrada" data-edge-to="identidad" data-edge-label="auth.minayao.site" data-edge-key="4" data-edge-id="sso" data-composition-points="500,483.95;575,483.95;575,514;650,514" data-composition-crossover="halo" data-composition-independent="true" d="M 500 483.95 L 567 483.95 Q 575 483.95 575 491.95 L 575 506 Q 575 514 583 514 L 650 514" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 570 278 L 570 480" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entrada" data-edge-to="identidad" data-edge-label="HTTP :18081" data-edge-key="4" data-edge-id="sso" data-composition-points="570,278;570,480" data-composition-crossover="halo" data-composition-independent="true" d="M 570 278 L 570 480" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
-        <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 500 527 L 567 527 Q 575 527 575 535 L 575 736 Q 575 744 583 744 L 650 744" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="entrada" data-edge-to="aula" data-edge-label="moodle.minayao.site" data-edge-key="5" data-edge-id="moodle" data-composition-points="500,527;575,527;575,744;650,744" data-composition-crossover="halo" data-composition-independent="true" d="M 500 527 L 567 527 Q 575 527 575 535 L 575 736 Q 575 744 583 744 L 650 744" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        </g>
-        <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 410 566 L 410 810 Q 410 818 418 818 L 737 818 Q 745 818 745 826 L 745 1070" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="entrada" data-edge-to="registros" data-edge-label="lrs.minayao.site" data-edge-key="6" data-edge-id="yet" data-composition-points="410,566;410,818;745,818;745,1070" data-composition-crossover="halo" data-composition-independent="true" d="M 410 566 L 410 810 Q 410 818 418 818 L 737 818 Q 745 818 745 826 L 745 1070" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        </g>
+        <path data-edge-from="entrada" data-edge-to="aula" data-edge-label="HTTP :18080" data-edge-key="5" data-edge-id="moodle" data-composition-points="570,278;570,370;800,370;800,480" d="M 570 278 L 570 362 Q 570 370 578 370 L 792 370 Q 800 370 800 378 L 800 480" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="entrada" data-edge-to="registros" data-edge-label="HTTP :18083" data-edge-key="6" data-edge-id="yet" data-composition-points="570,278;570,370;1030,370;1030,480" d="M 570 278 L 570 362 Q 570 370 578 370 L 1022 370 Q 1030 370 1030 378 L 1030 480" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 840 514 L 960 514" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="identidad" data-edge-to="base_identidad" data-edge-label="SQL" data-edge-key="7" data-edge-id="sql_sso" data-composition-points="840,514;960,514" data-composition-crossover="halo" data-composition-independent="true" d="M 840 514 L 960 514" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 570 548 L 570 700" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="identidad" data-edge-to="base_identidad" data-edge-label="SQL" data-edge-key="7" data-edge-id="sql_sso" data-composition-points="570,548;570,700" data-composition-crossover="halo" data-composition-independent="true" d="M 570 548 L 570 700" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 840 737 L 960 737" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="aula" data-edge-to="base_aula" data-edge-label="SQL" data-edge-key="8" data-edge-id="sql_aula" data-composition-points="840,737;960,737" data-composition-crossover="halo" data-composition-independent="true" d="M 840 737 L 960 737" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 807 548 L 807 700" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="aula" data-edge-to="base_aula" data-edge-label="SQL" data-edge-key="8" data-edge-id="sql_aula" data-composition-points="807,548;807,700" data-composition-crossover="halo" data-composition-independent="true" d="M 807 548 L 807 700" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 840 751 L 892 751 Q 900 751 900 759 L 900 866 Q 900 874 908 874 L 960 874" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="aula" data-edge-to="sesiones" data-edge-label="sesiones" data-edge-key="9" data-edge-id="redis" data-composition-points="840,751;900,751;900,874;960,874" data-composition-crossover="halo" data-composition-independent="true" d="M 840 751 L 892 751 Q 900 751 900 759 L 900 866 Q 900 874 908 874 L 960 874" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 890 514 L 906 514 Q 914 514 914 522 L 914 906 Q 914 914 906 914 L 890 914" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="aula" data-edge-to="sesiones" data-edge-label="sesiones" data-edge-key="9" data-edge-id="redis" data-composition-points="890,514;914,514;914,914;890,914" data-composition-crossover="halo" data-composition-independent="true" d="M 890 514 L 906 514 Q 914 514 914 522 L 914 906 Q 914 914 906 914 L 890 914" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 840 1104 L 960 1104" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="registros" data-edge-to="base_registros" data-edge-label="SQL" data-edge-key="10" data-edge-id="sql_registros" data-composition-points="840,1104;960,1104" data-composition-crossover="halo" data-composition-independent="true" d="M 840 1104 L 960 1104" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 1030 548 L 1030 700" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="registros" data-edge-to="base_registros" data-edge-label="SQL" data-edge-key="10" data-edge-id="sql_registros" data-composition-points="1030,548;1030,700" data-composition-crossover="halo" data-composition-independent="true" d="M 1030 548 L 1030 700" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
 
         <!-- Components -->
         <g id="node-usuarios" data-node-id="usuarios" data-node-label="Usuarios y clientes" tabindex="0" role="button" aria-label="Enfocar Usuarios y clientes, Navegador / xAPI, Componente de arquitectura" aria-pressed="false" data-node-kind="external" data-node-sublabel="Navegador / xAPI" data-node-context="Componente de arquitectura">
           <title>Usuarios y clientes · Navegador / xAPI · Componente de arquitectura</title>
-          <rect x="40" y="480" width="155" height="66" rx="6" class="c-mask"/>
-          <rect x="40" y="480" width="155" height="66" rx="6" class="c-external" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 486) scale(0.6875)">
+          <rect x="480" y="30" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="480" y="30" width="180" height="68" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(486 36) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="117.5" y="511" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Usuarios y clientes</text>
-        <text data-detail="context" x="117.5" y="527" class="t-muted" font-size="9" text-anchor="middle">Navegador / xAPI</text>
+          <text data-node-label="" data-detail-anchor="" x="570" y="62" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Usuarios y clientes</text>
+        <text data-detail="context" x="570" y="78" class="t-muted" font-size="9" text-anchor="middle">Navegador / xAPI</text>
         </g>
 
         <g id="node-entrada" data-node-id="entrada" data-node-label="Nginx del host" tabindex="0" role="button" aria-label="Enfocar Nginx del host, TLS :443 / HTTP :80, Componente de arquitectura" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="TLS :443 / HTTP :80" data-node-context="Componente de arquitectura">
           <title>Nginx del host · TLS :443 / HTTP :80 · Componente de arquitectura</title>
-          <rect x="320" y="460" width="180" height="106" rx="6" class="c-mask"/>
-          <rect x="320" y="460" width="180" height="106" rx="6" class="c-cloud" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(326 466) scale(0.6875)">
+          <rect x="480" y="210" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="480" y="210" width="180" height="68" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(486 216) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="410" y="511" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Nginx del host</text>
-        <text data-detail="context" x="410" y="527" class="t-muted" font-size="9" text-anchor="middle">TLS :443 / HTTP :80</text>
+          <text data-node-label="" data-detail-anchor="" x="570" y="242" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Nginx del host</text>
+        <text data-detail="context" x="570" y="258" class="t-muted" font-size="9" text-anchor="middle">TLS :443 / HTTP :80</text>
         </g>
 
         <g id="node-tls" data-node-id="tls" data-node-label="Certbot" tabindex="0" role="button" aria-label="Enfocar Certbot, Let&#39;s Encrypt / renovación, Componente de arquitectura" aria-pressed="false" data-node-kind="security" data-node-sublabel="Let&#39;s Encrypt / renovación" data-node-context="Componente de arquitectura">
           <title>Certbot · Let&#39;s Encrypt / renovación · Componente de arquitectura</title>
-          <rect x="320" y="140" width="180" height="66" rx="6" class="c-mask"/>
-          <rect x="320" y="140" width="180" height="66" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(326 146) scale(0.6875)">
+          <rect x="770" y="210" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="770" y="210" width="180" height="68" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(776 216) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="410" y="171" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Certbot</text>
-        <text data-detail="context" x="410" y="187" class="t-muted" font-size="9" text-anchor="middle">Let&#39;s Encrypt / renovación</text>
+          <text data-node-label="" data-detail-anchor="" x="860" y="242" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Certbot</text>
+        <text data-detail="context" x="860" y="258" class="t-muted" font-size="9" text-anchor="middle">Let&#39;s Encrypt / renovación</text>
         </g>
 
         <g id="node-principal" data-node-id="principal" data-node-label="Sitio principal" tabindex="0" role="button" aria-label="Enfocar Sitio principal, minayao.site, Componente de arquitectura" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="minayao.site" data-node-context="Componente de arquitectura">
           <title>Sitio principal · minayao.site · Componente de arquitectura</title>
-          <rect x="650" y="90" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="650" y="90" width="190" height="68" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(656 96) scale(0.6875)">
+          <rect x="20" y="480" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="20" y="480" width="180" height="68" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(26 486) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="745" y="122" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Sitio principal</text>
-        <text data-detail="context" x="745" y="138" class="t-muted" font-size="9" text-anchor="middle">minayao.site</text>
+          <text data-node-label="" data-detail-anchor="" x="110" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Sitio principal</text>
+        <text data-detail="context" x="110" y="528" class="t-muted" font-size="9" text-anchor="middle">minayao.site</text>
         </g>
 
         <g id="node-documentacion" data-node-id="documentacion" data-node-label="Documentación" tabindex="0" role="button" aria-label="Enfocar Documentación, Astro compilado / public, Componente de arquitectura" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Astro compilado / public" data-node-context="Componente de arquitectura">
           <title>Documentación · Astro compilado / public · Componente de arquitectura</title>
-          <rect x="650" y="270" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="650" y="270" width="190" height="68" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(656 276) scale(0.6875)">
+          <rect x="250" y="480" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="250" y="480" width="180" height="68" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(256 486) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="745" y="302" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Documentación</text>
-        <text data-detail="context" x="745" y="318" class="t-muted" font-size="9" text-anchor="middle">Astro compilado / public</text>
+          <text data-node-label="" data-detail-anchor="" x="340" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Documentación</text>
+        <text data-detail="context" x="340" y="528" class="t-muted" font-size="9" text-anchor="middle">Astro compilado / public</text>
         </g>
 
         <g id="node-identidad" data-node-id="identidad" data-node-label="Keycloak 26.7.4" tabindex="0" role="button" aria-label="Enfocar Keycloak 26.7.4, 127.0.0.1:18081, Docker · svc-keycloak" aria-pressed="false" data-node-kind="security" data-node-sublabel="127.0.0.1:18081" data-node-context="Docker · svc-keycloak">
           <title>Keycloak 26.7.4 · 127.0.0.1:18081 · Docker · svc-keycloak</title>
-          <rect x="650" y="480" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="650" y="480" width="190" height="68" rx="6" class="c-security" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(656 486) scale(0.6875)">
+          <rect x="480" y="480" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="480" y="480" width="180" height="68" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(486 486) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="745" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Keycloak 26.7.4</text>
-        <text data-detail="context" x="745" y="528" class="t-muted" font-size="9" text-anchor="middle">127.0.0.1:18081</text>
+          <text data-node-label="" data-detail-anchor="" x="570" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Keycloak 26.7.4</text>
+        <text data-detail="context" x="570" y="528" class="t-muted" font-size="9" text-anchor="middle">127.0.0.1:18081</text>
         </g>
 
         <g id="node-base_identidad" data-node-id="base_identidad" data-node-label="PostgreSQL · SSO" tabindex="0" role="button" aria-label="Enfocar PostgreSQL · SSO, 16 / volumen Docker, Docker · svc-keycloak" aria-pressed="false" data-node-kind="database" data-node-sublabel="16 / volumen Docker" data-node-context="Docker · svc-keycloak">
           <title>PostgreSQL · SSO · 16 / volumen Docker · Docker · svc-keycloak</title>
-          <rect x="960" y="480" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="960" y="480" width="190" height="68" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(966 486) scale(0.6875)">
+          <rect x="480" y="700" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="480" y="700" width="180" height="68" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(486 706) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="1055" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL · SSO</text>
-        <text data-detail="context" x="1055" y="528" class="t-muted" font-size="9" text-anchor="middle">16 / volumen Docker</text>
+          <text data-node-label="" data-detail-anchor="" x="570" y="732" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL · SSO</text>
+        <text data-detail="context" x="570" y="748" class="t-muted" font-size="9" text-anchor="middle">16 / volumen Docker</text>
         </g>
 
         <g id="node-aula" data-node-id="aula" data-node-label="Moodle" tabindex="0" role="button" aria-label="Enfocar Moodle, web / PHP / cron · :18080, Docker · lms-moodle" aria-pressed="false" data-node-kind="backend" data-node-sublabel="web / PHP / cron · :18080" data-node-context="Docker · lms-moodle">
           <title>Moodle · web / PHP / cron · :18080 · Docker · lms-moodle</title>
-          <rect x="650" y="710" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="650" y="710" width="190" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(656 716) scale(0.6875)">
+          <rect x="710" y="480" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="710" y="480" width="180" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(716 486) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="745" y="742" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Moodle</text>
-        <text data-detail="context" x="745" y="758" class="t-muted" font-size="9" text-anchor="middle">web / PHP / cron · :18080</text>
+          <text data-node-label="" data-detail-anchor="" x="800" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Moodle</text>
+        <text data-detail="context" x="800" y="528" class="t-muted" font-size="9" text-anchor="middle">web / PHP / cron · :18080</text>
         </g>
 
         <g id="node-base_aula" data-node-id="base_aula" data-node-label="PostgreSQL · Moodle" tabindex="0" role="button" aria-label="Enfocar PostgreSQL · Moodle, 16 / volumen Docker, Docker · lms-moodle" aria-pressed="false" data-node-kind="database" data-node-sublabel="16 / volumen Docker" data-node-context="Docker · lms-moodle">
           <title>PostgreSQL · Moodle · 16 / volumen Docker · Docker · lms-moodle</title>
-          <rect x="960" y="710" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="960" y="710" width="190" height="68" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(966 716) scale(0.6875)">
+          <rect x="710" y="700" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="710" y="700" width="180" height="68" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(716 706) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="1055" y="742" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL · Moodle</text>
-        <text data-detail="context" x="1055" y="758" class="t-muted" font-size="9" text-anchor="middle">16 / volumen Docker</text>
+          <text data-node-label="" data-detail-anchor="" x="800" y="732" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL · Moodle</text>
+        <text data-detail="context" x="800" y="748" class="t-muted" font-size="9" text-anchor="middle">16 / volumen Docker</text>
         </g>
 
         <g id="node-sesiones" data-node-id="sesiones" data-node-label="Redis · Moodle" tabindex="0" role="button" aria-label="Enfocar Redis · Moodle, 7 / sesiones, Docker · lms-moodle" aria-pressed="false" data-node-kind="database" data-node-sublabel="7 / sesiones" data-node-context="Docker · lms-moodle">
           <title>Redis · Moodle · 7 / sesiones · Docker · lms-moodle</title>
-          <rect x="960" y="840" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="960" y="840" width="190" height="68" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(966 846) scale(0.6875)">
+          <rect x="710" y="880" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="710" y="880" width="180" height="68" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(716 886) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="1055" y="872" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Redis · Moodle</text>
-        <text data-detail="context" x="1055" y="888" class="t-muted" font-size="9" text-anchor="middle">7 / sesiones</text>
+          <text data-node-label="" data-detail-anchor="" x="800" y="912" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Redis · Moodle</text>
+        <text data-detail="context" x="800" y="928" class="t-muted" font-size="9" text-anchor="middle">7 / sesiones</text>
         </g>
 
-        <g id="node-registros" data-node-id="registros" data-node-label="Yet SQL LRS 0.9.7" tabindex="0" role="button" aria-label="Enfocar Yet SQL LRS 0.9.7, 127.0.0.1:18083 / xAPI, Docker · yet-lrsql / red privada" aria-pressed="false" data-node-kind="backend" data-node-sublabel="127.0.0.1:18083 / xAPI" data-node-context="Docker · yet-lrsql / red privada">
-          <title>Yet SQL LRS 0.9.7 · 127.0.0.1:18083 / xAPI · Docker · yet-lrsql / red privada</title>
-          <rect x="650" y="1070" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="650" y="1070" width="190" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(656 1076) scale(0.6875)">
+        <g id="node-registros" data-node-id="registros" data-node-label="Yet SQL LRS 0.9.7" tabindex="0" role="button" aria-label="Enfocar Yet SQL LRS 0.9.7, 127.0.0.1:18083 / xAPI, Docker · yet-lrsql" aria-pressed="false" data-node-kind="backend" data-node-sublabel="127.0.0.1:18083 / xAPI" data-node-context="Docker · yet-lrsql">
+          <title>Yet SQL LRS 0.9.7 · 127.0.0.1:18083 / xAPI · Docker · yet-lrsql</title>
+          <rect x="940" y="480" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="940" y="480" width="180" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(946 486) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="745" y="1102" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Yet SQL LRS 0.9.7</text>
-        <text data-detail="context" x="745" y="1118" class="t-muted" font-size="9" text-anchor="middle">127.0.0.1:18083 / xAPI</text>
+          <text data-node-label="" data-detail-anchor="" x="1030" y="512" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Yet SQL LRS 0.9.7</text>
+        <text data-detail="context" x="1030" y="528" class="t-muted" font-size="9" text-anchor="middle">127.0.0.1:18083 / xAPI</text>
         </g>
 
-        <g id="node-base_registros" data-node-id="base_registros" data-node-label="PostgreSQL · Yet" tabindex="0" role="button" aria-label="Enfocar PostgreSQL · Yet, 16.15 / bind mount, Docker · yet-lrsql / red privada" aria-pressed="false" data-node-kind="database" data-node-sublabel="16.15 / bind mount" data-node-context="Docker · yet-lrsql / red privada">
-          <title>PostgreSQL · Yet · 16.15 / bind mount · Docker · yet-lrsql / red privada</title>
-          <rect x="960" y="1070" width="190" height="68" rx="6" class="c-mask"/>
-          <rect x="960" y="1070" width="190" height="68" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(966 1076) scale(0.6875)">
+        <g id="node-base_registros" data-node-id="base_registros" data-node-label="PostgreSQL · Yet" tabindex="0" role="button" aria-label="Enfocar PostgreSQL · Yet, 16.15 / bind mount, Docker · yet-lrsql" aria-pressed="false" data-node-kind="database" data-node-sublabel="16.15 / bind mount" data-node-context="Docker · yet-lrsql">
+          <title>PostgreSQL · Yet · 16.15 / bind mount · Docker · yet-lrsql</title>
+          <rect x="940" y="700" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="940" y="700" width="180" height="68" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(946 706) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="1055" y="1102" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL · Yet</text>
-        <text data-detail="context" x="1055" y="1118" class="t-muted" font-size="9" text-anchor="middle">16.15 / bind mount</text>
+          <text data-node-label="" data-detail-anchor="" x="1030" y="732" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">PostgreSQL · Yet</text>
+        <text data-detail="context" x="1030" y="748" class="t-muted" font-size="9" text-anchor="middle">16.15 / bind mount</text>
         </g>
 
         <!-- Connection labels -->
         <g data-detail="context" data-edge-from="usuarios" data-edge-to="entrada" data-edge-label="HTTPS" data-edge-key="0" data-edge-id="acceso">
-          <rect x="240.5" y="493" width="34" height="14" rx="3" class="c-mask"/>
-          <text x="257.5" y="503" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTPS</text>
+          <rect x="530" y="147" width="34" height="14" rx="3" class="c-mask"/>
+          <text x="547" y="157" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTPS</text>
         </g>
         <g data-detail="context" data-edge-from="tls" data-edge-to="entrada" data-edge-label="TLS / recarga" data-edge-key="1" data-edge-id="certificados">
-          <rect x="324.6" y="326" width="72.4" height="14" rx="3" class="c-mask"/>
-          <text x="360.8" y="336" class="t-edge-security" font-size="8" text-anchor="middle">TLS / recarga</text>
+          <rect x="678.8" y="224" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="715" y="234" class="t-edge-security" font-size="8" text-anchor="middle">TLS / recarga</text>
         </g>
-        <g data-detail="context" data-edge-from="entrada" data-edge-to="principal" data-edge-label="minayao.site" data-edge-key="2" data-edge-id="web">
-          <rect x="547.2" y="241" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="581" y="251" class="t-edge-default" font-size="8" text-anchor="middle">minayao.site</text>
+        <g data-detail="context" data-edge-from="entrada" data-edge-to="principal" data-edge-label="estático" data-edge-key="2" data-edge-id="web">
+          <rect x="315.8" y="350" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="340" y="360" class="t-edge-default" font-size="8" text-anchor="middle">estático</text>
         </g>
-        <g data-detail="context" data-edge-from="entrada" data-edge-to="documentacion" data-edge-label="doc.minayao.site" data-edge-key="3" data-edge-id="docs">
-          <rect x="582.6" y="381.5" width="86.8" height="14" rx="3" class="c-mask"/>
-          <text x="626" y="391.5" class="t-edge-default" font-size="8" text-anchor="middle">doc.minayao.site</text>
+        <g data-detail="context" data-edge-from="entrada" data-edge-to="documentacion" data-edge-label="estático" data-edge-key="3" data-edge-id="docs">
+          <rect x="430.8" y="350" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="455" y="360" class="t-edge-default" font-size="8" text-anchor="middle">estático</text>
         </g>
-        <g data-detail="context" data-edge-from="entrada" data-edge-to="identidad" data-edge-label="auth.minayao.site" data-edge-key="4" data-edge-id="sso">
-          <rect x="529.2" y="478.975" width="91.6" height="14" rx="3" class="c-mask"/>
-          <text x="575" y="488.975" class="t-edge-emphasis" font-size="8" text-anchor="middle">auth.minayao.site</text>
+        <g data-detail="context" data-edge-from="entrada" data-edge-to="identidad" data-edge-label="HTTP :18081" data-edge-key="4" data-edge-id="sso">
+          <rect x="501.20000000000005" y="321.5" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="532.6" y="331.5" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTP :18081</text>
         </g>
-        <g data-detail="context" data-edge-from="entrada" data-edge-to="aula" data-edge-label="moodle.minayao.site" data-edge-key="5" data-edge-id="moodle">
-          <rect x="524.4" y="615.5" width="101.2" height="14" rx="3" class="c-mask"/>
-          <text x="575" y="625.5" class="t-edge-emphasis" font-size="8" text-anchor="middle">moodle.minayao.site</text>
+        <g data-detail="context" data-edge-from="entrada" data-edge-to="aula" data-edge-label="HTTP :18080" data-edge-key="5" data-edge-id="moodle">
+          <rect x="653.6" y="350" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="685" y="360" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTP :18080</text>
         </g>
-        <g data-detail="context" data-edge-from="entrada" data-edge-to="registros" data-edge-label="lrs.minayao.site" data-edge-key="6" data-edge-id="yet">
-          <rect x="534.1" y="798" width="86.8" height="14" rx="3" class="c-mask"/>
-          <text x="577.5" y="808" class="t-edge-emphasis" font-size="8" text-anchor="middle">lrs.minayao.site</text>
+        <g data-detail="context" data-edge-from="entrada" data-edge-to="registros" data-edge-label="HTTP :18083" data-edge-key="6" data-edge-id="yet">
+          <rect x="768.6" y="350" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="800" y="360" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTP :18083</text>
         </g>
         <g data-detail="context" data-edge-from="identidad" data-edge-to="base_identidad" data-edge-label="SQL" data-edge-key="7" data-edge-id="sql_sso">
-          <rect x="885" y="494" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="900" y="504" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
+          <rect x="534" y="617" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="549" y="627" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
         </g>
         <g data-detail="context" data-edge-from="aula" data-edge-to="base_aula" data-edge-label="SQL" data-edge-key="8" data-edge-id="sql_aula">
-          <rect x="885" y="717" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="900" y="727" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
+          <rect x="771" y="617" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="786" y="627" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
         </g>
         <g data-detail="context" data-edge-from="aula" data-edge-to="sesiones" data-edge-label="sesiones" data-edge-key="9" data-edge-id="redis">
-          <rect x="875.8" y="792.5" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="900" y="802.5" class="t-edge-dashed" font-size="8" text-anchor="middle">sesiones</text>
+          <rect x="889.8" y="694" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="914" y="704" class="t-edge-dashed" font-size="8" text-anchor="middle">sesiones</text>
         </g>
         <g data-detail="context" data-edge-from="registros" data-edge-to="base_registros" data-edge-label="SQL" data-edge-key="10" data-edge-id="sql_registros">
-          <rect x="885" y="1084" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="900" y="1094" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
+          <rect x="994" y="617" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="1009" y="627" class="t-edge-default" font-size="8" text-anchor="middle">SQL</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
         <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="Docker · svc-keycloak">
-          <rect data-graph-role="structural-frame-label-mask" x="632" y="460" width="123.39999999999999" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="636" y="473" class="t-cloud" font-size="9" font-weight="600">Docker · svc-keycloak</text>
+          <rect data-graph-role="structural-frame-label-mask" x="462" y="460" width="123.39999999999999" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="466" y="473" class="t-cloud" font-size="9" font-weight="600">Docker · svc-keycloak</text>
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="region" data-composition-frame-label="Docker · lms-moodle">
-          <rect data-graph-role="structural-frame-label-mask" x="632" y="690" width="112.6" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="636" y="703" class="t-cloud" font-size="9" font-weight="600">Docker · lms-moodle</text>
+          <rect data-graph-role="structural-frame-label-mask" x="692" y="460" width="112.6" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="696" y="473" class="t-cloud" font-size="9" font-weight="600">Docker · lms-moodle</text>
         </g>
 
-        <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="Docker · yet-lrsql / red privada">
-          <rect data-graph-role="structural-frame-label-mask" x="632" y="1050" width="182.79999999999998" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="636" y="1063" class="t-cloud" font-size="9" font-weight="600">Docker · yet-lrsql / red privada</text>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="Docker · yet-lrsql">
+          <rect data-graph-role="structural-frame-label-mask" x="922" y="460" width="107.2" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="926" y="473" class="t-cloud" font-size="9" font-weight="600">Docker · yet-lrsql</text>
         </g>
 
         <!-- Legend -->
         <g data-legend="" data-legend-bridge="">
-          <text x="40" y="1190" class="t-primary" font-size="12" font-weight="650">Leyenda</text>
-          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="1210" data-legend-width="83">
-            <rect x="40" y="1201" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
-            <text x="62" y="1210" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          <text x="40" y="1000" class="t-primary" font-size="12" font-weight="650">Leyenda</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="1020" data-legend-width="83">
+            <rect x="40" y="1011" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
+            <text x="62" y="1020" class="t-muted" font-size="10" font-weight="500">Frontend</text>
           </g>
-          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="1210" data-legend-width="78">
-            <rect x="145" y="1201" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
-            <text x="167" y="1210" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="1020" data-legend-width="78">
+            <rect x="145" y="1011" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="167" y="1020" class="t-muted" font-size="10" font-weight="500">Backend</text>
           </g>
-          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Base de datos" data-legend-x="245" data-legend-baseline="1210" data-legend-width="108">
-            <rect x="245" y="1201" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
-            <text x="267" y="1210" class="t-muted" font-size="10" font-weight="500">Base de datos</text>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Base de datos" data-legend-x="245" data-legend-baseline="1020" data-legend-width="108">
+            <rect x="245" y="1011" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="267" y="1020" class="t-muted" font-size="10" font-weight="500">Base de datos</text>
           </g>
-          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Nube" data-legend-x="375" data-legend-baseline="1210" data-legend-width="63">
-            <rect x="375" y="1201" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
-            <text x="397" y="1210" class="t-muted" font-size="10" font-weight="500">Nube</text>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Nube" data-legend-x="375" data-legend-baseline="1020" data-legend-width="63">
+            <rect x="375" y="1011" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
+            <text x="397" y="1020" class="t-muted" font-size="10" font-weight="500">Nube</text>
           </g>
-          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Seguridad" data-legend-x="460" data-legend-baseline="1210" data-legend-width="88">
-            <rect x="460" y="1201" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
-            <text x="482" y="1210" class="t-muted" font-size="10" font-weight="500">Seguridad</text>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Seguridad" data-legend-x="460" data-legend-baseline="1020" data-legend-width="88">
+            <rect x="460" y="1011" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="482" y="1020" class="t-muted" font-size="10" font-weight="500">Seguridad</text>
           </g>
-          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="Externo" data-legend-x="570" data-legend-baseline="1210" data-legend-width="78">
-            <rect x="570" y="1201" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
-            <text x="592" y="1210" class="t-muted" font-size="10" font-weight="500">Externo</text>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="Externo" data-legend-x="570" data-legend-baseline="1020" data-legend-width="78">
+            <rect x="570" y="1011" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="592" y="1020" class="t-muted" font-size="10" font-weight="500">Externo</text>
           </g>
         </g>
       </svg>

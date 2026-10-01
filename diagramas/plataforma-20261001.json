@@ -2,8 +2,8 @@
   "schema_version": 1,
   "diagram_type": "architecture",
   "meta": {
-    "title": "Plataforma minayao.site · 1 octubre 2026",
-    "output": ".archify/architecture-plataforma-yet-20261001-094500/plataforma.html",
+    "title": "Plataforma minayao.site · arquitectura descendente",
+    "output": ".archify/architecture-plataforma-arbol-20261001-100000/plataforma.html",
     "quality_profile": "showcase",
     "locale": "es",
     "repository": {
@@ -458,12 +458,12 @@
       "label": "Usuarios y clientes",
       "sublabel": "Navegador / xAPI",
       "pos": [
-        40,
-        480
+        480,
+        30
       ],
       "size": [
-        155,
-        66
+        180,
+        68
       ],
       "sources": [
         {
@@ -479,12 +479,12 @@
       "label": "Nginx del host",
       "sublabel": "TLS :443 / HTTP :80",
       "pos": [
-        320,
-        460
+        480,
+        210
       ],
       "size": [
         180,
-        106
+        68
       ],
       "sources": [
         {
@@ -500,12 +500,12 @@
       "label": "Certbot",
       "sublabel": "Let's Encrypt / renovación",
       "pos": [
-        320,
-        140
+        770,
+        210
       ],
       "size": [
         180,
-        66
+        68
       ],
       "sources": [
         {
@@ -521,11 +521,11 @@
       "label": "Sitio principal",
       "sublabel": "minayao.site",
       "pos": [
-        650,
-        90
+        20,
+        480
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -542,11 +542,11 @@
       "label": "Documentación",
       "sublabel": "Astro compilado / public",
       "pos": [
-        650,
-        270
+        250,
+        480
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -563,11 +563,11 @@
       "label": "Keycloak 26.7.4",
       "sublabel": "127.0.0.1:18081",
       "pos": [
-        650,
+        480,
         480
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -584,11 +584,11 @@
       "label": "PostgreSQL · SSO",
       "sublabel": "16 / volumen Docker",
       "pos": [
-        960,
-        480
+        480,
+        700
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -605,11 +605,11 @@
       "label": "Moodle",
       "sublabel": "web / PHP / cron · :18080",
       "pos": [
-        650,
-        710
+        710,
+        480
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -626,11 +626,11 @@
       "label": "PostgreSQL · Moodle",
       "sublabel": "16 / volumen Docker",
       "pos": [
-        960,
-        710
+        710,
+        700
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -647,11 +647,11 @@
       "label": "Redis · Moodle",
       "sublabel": "7 / sesiones",
       "pos": [
-        960,
-        840
+        710,
+        880
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -668,11 +668,11 @@
       "label": "Yet SQL LRS 0.9.7",
       "sublabel": "127.0.0.1:18083 / xAPI",
       "pos": [
-        650,
-        1070
+        940,
+        480
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -689,11 +689,11 @@
       "label": "PostgreSQL · Yet",
       "sublabel": "16.15 / bind mount",
       "pos": [
-        960,
-        1070
+        940,
+        700
       ],
       "size": [
-        190,
+        180,
         68
       ],
       "sources": [
@@ -727,7 +727,7 @@
     },
     {
       "kind": "region",
-      "label": "Docker · yet-lrsql / red privada",
+      "label": "Docker · yet-lrsql",
       "wraps": [
         "registros",
         "base_registros"
@@ -754,34 +754,84 @@
       "id": "web",
       "from": "entrada",
       "to": "principal",
-      "label": "minayao.site"
+      "label": "estático",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "via": [
+        [
+          570,
+          370
+        ],
+        [
+          110,
+          370
+        ]
+      ]
     },
     {
       "id": "docs",
       "from": "entrada",
       "to": "documentacion",
-      "label": "doc.minayao.site"
+      "label": "estático",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "via": [
+        [
+          570,
+          370
+        ],
+        [
+          340,
+          370
+        ]
+      ]
     },
     {
       "id": "sso",
       "from": "entrada",
       "to": "identidad",
-      "label": "auth.minayao.site",
-      "variant": "emphasis"
+      "label": "HTTP :18081",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top"
     },
     {
       "id": "moodle",
       "from": "entrada",
       "to": "aula",
-      "label": "moodle.minayao.site",
-      "variant": "emphasis"
+      "label": "HTTP :18080",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "via": [
+        [
+          570,
+          370
+        ],
+        [
+          800,
+          370
+        ]
+      ]
     },
     {
       "id": "yet",
       "from": "entrada",
       "to": "registros",
-      "label": "lrs.minayao.site",
-      "variant": "emphasis"
+      "label": "HTTP :18083",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "via": [
+        [
+          570,
+          370
+        ],
+        [
+          1030,
+          370
+        ]
+      ]
     },
     {
       "id": "sql_sso",
