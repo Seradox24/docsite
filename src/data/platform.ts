@@ -25,6 +25,8 @@ export interface TreeNode {
 export const tree: TreeNode[] = [
   { branch: '├──', name: 'microservicios/', note: 'sin contenedores observados', variant: 'folder' },
   { branch: '├──', name: 'servicios/', tag: 'DOCKER', variant: 'folder' },
+  { branch: '│   ├──', name: 'svc-keycloak/', variant: 'child' },
+  { branch: '│   └──', name: 'svc-lrsql/', variant: 'child', tag: 'LRS', tone: 'green' },
   { branch: '├──', name: 'moodle/', tag: 'DOCKER', variant: 'folder' },
   { branch: '├──', name: 'documentacion/', tag: 'WEB', tone: 'green', variant: 'folder', highlight: true },
   { branch: '│   ├──', name: 'contenido/', variant: 'child' },
@@ -46,7 +48,7 @@ export const guides: Guide[] = [
   {
     n: '01',
     title: 'Aplicaciones y componentes',
-    body: '<code>servicios/svc-keycloak/</code> contiene el despliegue de identidad. <code>microservicios/</code> existe, pero no se observaron contenedores asociados.',
+    body: '<code>servicios/svc-keycloak/</code> contiene identidad y <code>servicios/svc-lrsql/</code> contiene Yet SQL LRS. Ambos usan PostgreSQL independiente. <code>microservicios/</code> no tiene contenedores observados.',
   },
   {
     n: '02',
@@ -56,7 +58,7 @@ export const guides: Guide[] = [
   {
     n: '03',
     title: 'Datos fuera del código',
-    body: '<code>datos/</code>, <code>secretos/</code> y <code>respaldos/</code> existen en el servidor. Moodle y Keycloak usan volúmenes Docker para los datos activos; esta página no publica su contenido.',
+    body: 'Moodle y Keycloak usan volúmenes Docker. Yet guarda PostgreSQL en <code>datos/servicios/svc-lrsql/postgres/</code>, secretos en <code>secretos/servicios/svc-lrsql.env</code> y respaldos en <code>respaldos/svc-lrsql/</code>. Su contenido permanece privado.',
   },
   {
     n: '04',
@@ -75,7 +77,7 @@ export interface Metric {
 
 export const metrics: Metric[] = [
   { label: 'MICROSERVICIOS', value: '00', unit: 'desplegados' },
-  { label: 'SERVICIOS', value: '01', unit: 'desplegado' },
+  { label: 'SERVICIOS', value: '02', unit: 'desplegados' },
   { label: 'MOODLE', text: 'Publicado', dot: 'status' },
   { label: 'DOCUMENTACIÓN', text: 'Activa', dot: 'status' },
 ];
@@ -88,6 +90,12 @@ export interface InventoryItem {
 }
 
 export const inventory: InventoryItem[] = [
+  {
+    tag: 'SERVICIOS · LRS',
+    title: 'Yet Analytics SQL LRS',
+    body: 'SQL LRS 0.9.7 y PostgreSQL 16.15, publicados en <a href="https://lrs.minayao.site/admin">lrs.minayao.site</a>. Nginx envía a 127.0.0.1:18083; login HTTPS y escritura/lectura xAPI 1.0.3 y 2.0.0 verificados. Integración con Moodle pendiente.',
+    badge: 'ACTIVO',
+  },
   {
     tag: 'SERVICIOS',
     title: 'Keycloak (SSO)',
@@ -141,6 +149,13 @@ export interface Service {
 }
 
 export const services: Service[] = [
+  {
+    tag: 'LRS · YET ANALYTICS',
+    title: 'Registros de aprendizaje',
+    body: 'Administración de SQL LRS. Endpoint xAPI: https://lrs.minayao.site/xapi. La integración con Moodle se configura por separado.',
+    href: 'https://lrs.minayao.site/admin',
+    cta: 'Abrir',
+  },
   {
     tag: 'SSO · KEYCLOAK',
     title: 'Identidad de la plataforma',

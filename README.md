@@ -39,6 +39,7 @@ no hace commit ni push automáticamente.
 - `public/diagramas/archify/`: las dos versiones HTML de los diagramas.
 - `public/diagramas/archify/plataforma-rutas-20260930.png`: captura del diagrama del estado observado.
 - `diagramas/estado-servidor-2026-09-30.md`: evidencia resumida de la inspección del VPS.
+- `diagramas/estado-servidor-2026-10-01.md`: instalación de Yet SQL LRS, rutas y verificaciones.
 - `public/arquitectura.html`: acceso compatible a la última versión.
 - `diagramas/README.md`: procedencia y actualización de diagramas.
 - `.github/workflows/deploy.yml`: compilación y publicación.
@@ -80,3 +81,9 @@ Después del push, revisa que **Build and deploy** termine correctamente y visit
 - https://doc.minayao.site/diagramas/archify/plataforma.html
 - https://doc.minayao.site/diagramas/archify/plataforma-rutas-20260930.png
 - https://doc.minayao.site/diagramas/archify/plataforma-20260929-204500.html
+
+El inventario del 1 de octubre incluye Keycloak, Yet SQL LRS y Moodle. Los
+diagramas del 30 de septiembre se conservan como históricos, anteriores al LRS.
+La documentación pública enlaza la administración y el repositorio de Yet;
+las contraseñas y claves xAPI se mantienen únicamente en el archivo privado
+de secretos del servidor.
