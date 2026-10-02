@@ -1,7 +1,7 @@
 # Monitoreo por HTTPS en la LAN
 
-Configuraciones preparadas el 2 de octubre de 2026. La activación requiere completar
-la validación DNS y recibir el certificado; no basta con copiar estos archivos.
+Configuraciones activadas el 2 de octubre de 2026, después de emitir y comprobar
+el certificado wildcard. Los tres dominios responden por HTTPS en la VM.
 
 | Dominio | Destino en la VM |
 | --- | --- |
@@ -21,10 +21,12 @@ Ejecutar `nginx -t` antes de recargar. Si falla, retirar únicamente los nuevos 
 La clave TLS de monitoreo se genera y permanece en la VM en
 `infraestructura/tls/lan-monitoring/`, con directorio 700 y archivos 600 para root.
 La emisión se realiza desde un equipo con Internet usando únicamente el CSR público.
-El certificado solicitado es `*.minayao.site`: cubre los tres servicios y futuros
+El certificado emitido es `*.minayao.site`: cubre los tres servicios y futuros
 subdominios de un nivel. Requiere un único TXT en `_acme-challenge.minayao.site`.
 Ese TXT es un desafío temporal; el valor cambia en futuras renovaciones.
 Los dos sitios originales conservan su certificado vigente.
+El certificado wildcard vence el 31 de diciembre de 2026 a las 11:37:20 UTC
+(08:37:20 en Santiago). No hay renovación automática DNS configurada.
 `scripts/acme-dns-csr.py` conserva el estado y la clave de cuenta ACME fuera del repo,
 en un directorio privado del equipo emisor. No subir esos archivos a Git ni a `dist/`.
 Los desafíos TXT se validan en el DNS autoritativo antes de completar la emisión.

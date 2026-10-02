@@ -240,3 +240,23 @@ la respuesta HTTPS; restaura la publicación anterior si no coinciden.
 Únicamente se transfiere el contenido de `dist/`; el repositorio, las fuentes
 y las configuraciones operativas no se publican. El workflow de GitHub solo
 compila; no despliega al VPS antiguo.
+
+## 2 de octubre de 2026: monitoreo por dominios HTTPS
+
+- Kuma: https://kuma.minayao.site/ hacia HTTP 192.168.50.11:3001.
+- Portainer: https://port.minayao.site/ hacia HTTPS 192.168.50.11:9443.
+- Glances: https://glances.minayao.site/ hacia HTTP 192.168.50.11:61208.
+- HTTP redirige a HTTPS. Los nombres resuelven a la VM mediante el DNS comodín.
+- Certificado `*.minayao.site` emitido por DNS-01; vence el 31/12/2026
+  a las 11:37:20 UTC (08:37:20 en Santiago). Renovación DNS manual.
+- Clave TLS generada y conservada únicamente en la VM en
+  `infraestructura/tls/lan-monitoring/privkey.pem`, root y modo 600.
+  La cuenta ACME se conserva fuera del repo en un directorio privado del emisor.
+- Proxies independientes bajo `infraestructura/nginx/sites-available/`,
+  habilitados mediante enlaces en `/etc/nginx/sites-enabled/`.
+  Mapa WebSocket en `infraestructura/nginx/conf.d/lan-websocket.conf`.
+- Nginx verifica el certificado interno de Portainer con `localhost` y la
+  copia pública confiada en `infraestructura/tls/portainer-upstream/server.pem`.
+- Verificado: TLS, HTML y recursos estáticos de las tres aplicaciones,
+  Socket.IO y WebSocket 101 en Kuma, y API CPU de Glances por HTTPS.
+- No se cambiaron contenedores ni volúmenes. Los sitios originales continúan activos.

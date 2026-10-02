@@ -53,6 +53,10 @@ con `restart: unless-stopped` y puertos publicados en `192.168.50.11`.
 La configuración conservada está en `configuraciones/svc-uptime-kuma/`, `configuraciones/svc-portainer/` y
 `configuraciones/svc-glances/`.
 Los servicios no instalados y la imagen de arquitectura no se publican.
+Los accesos de monitoreo son https://kuma.minayao.site/,
+https://port.minayao.site/ y https://glances.minayao.site/, con certificado
+wildcard emitido por validación DNS. Sus proxies se conservan en
+`configuraciones/nginx/`; se instalan fuera del contenido público de Astro.
 Los registros históricos se mantienen fuera del sitio público.
 
 La sección Organización muestra las carpetas reales, incluidas las reservas vacías

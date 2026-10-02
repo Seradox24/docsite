@@ -67,7 +67,7 @@ export interface Metric {
 }
 
 export const metrics: Metric[] = [
-  { label: 'SITIOS HTTPS', value: '02', unit: 'en LAN' },
+  { label: 'SITIOS HTTPS', value: '05', unit: 'en LAN' },
   { label: 'MONITOREO', value: '03', unit: 'activos' },
   { label: 'SERVIDOR', text: 'LAN', dot: 'status' },
   { label: 'DOCUMENTACIÓN', text: 'Activa', dot: 'status' },
@@ -81,11 +81,11 @@ export interface InventoryItem {
 }
 
 export const inventory: InventoryItem[] = [
-  { tag: 'INFRAESTRUCTURA', title: 'Nginx central · moodlenewen', body: 'Ubuntu 26.04.1 LTS en <code>192.168.50.11</code>. Nginx 1.28.3 sirve dos dominios en la LAN; HTTP redirige a HTTPS. Certificado válido hasta el 30 de diciembre de 2026.', badge: 'ACTIVO' },
+  { tag: 'INFRAESTRUCTURA', title: 'Nginx central · moodlenewen', body: 'Ubuntu 26.04.1 LTS en <code>192.168.50.11</code>. Nginx 1.28.3 sirve cinco dominios en la LAN; HTTP redirige a HTTPS. Los sitios originales conservan su certificado y el monitoreo usa un certificado wildcard <code>*.minayao.site</code> válido hasta el 31 de diciembre de 2026.', badge: 'ACTIVO' },
   { tag: 'DOCUMENTACIÓN', title: 'Centro de documentación', body: 'Astro compilado y publicado por SSH. <code>documentacion/public/</code> apunta a la versión activa en <code>documentacion/releases/</code>; cada publicación conserva la versión anterior.', badge: 'ACTIVO' },
-  { tag: 'MONITOREO', title: 'Uptime Kuma', body: 'Monitoreo de disponibilidad. Contenedor saludable y datos persistentes conservados. Acceso LAN en <code>192.168.50.11:3001</code>.', badge: 'ACTIVO' },
-  { tag: 'ADMINISTRACIÓN', title: 'Portainer', body: 'Administración de Docker mediante interfaz HTTPS en <code>192.168.50.11:9443</code>. Conserva su volumen de datos y la conexión al Docker del host.', badge: 'ACTIVO' },
-  { tag: 'RECURSOS', title: 'Glances', body: 'Panel de CPU, memoria, disco y contenedores. Interfaz web disponible en <code>192.168.50.11:61208</code>.', badge: 'ACTIVO' },
+  { tag: 'MONITOREO', title: 'Uptime Kuma', body: 'Monitoreo de disponibilidad en <code>kuma.minayao.site</code> por HTTPS. Contenedor saludable y datos persistentes conservados; Nginx dirige al puerto LAN <code>3001</code>.', badge: 'ACTIVO' },
+  { tag: 'ADMINISTRACIÓN', title: 'Portainer', body: 'Administración de Docker en <code>port.minayao.site</code> por HTTPS. Nginx verifica el certificado interno del puerto <code>9443</code>. Conserva su volumen de datos y la conexión al Docker del host.', badge: 'ACTIVO' },
+  { tag: 'RECURSOS', title: 'Glances', body: 'Panel de CPU, memoria, disco y contenedores en <code>glances.minayao.site</code> por HTTPS. Nginx dirige al puerto LAN <code>61208</code>.', badge: 'ACTIVO' },
 ];
 
 export interface Principle {
@@ -123,7 +123,7 @@ export interface Service {
 export const services: Service[] = [
   { tag: 'SITIO PRINCIPAL', title: 'Estamos trabajando para usted', body: 'Página de mantenimiento servida por el Nginx central.', href: 'https://minayao.site', cta: 'Abrir' },
   { tag: 'DOCUMENTACIÓN', title: 'Servidor actual · LAN', body: 'Estructura y servicios instalados en moodlenewen.', href: 'https://doc.minayao.site', cta: 'Abrir' },
-  { tag: 'DISPONIBILIDAD', title: 'Uptime Kuma', body: 'Panel de monitoreo de disponibilidad en la LAN.', href: 'http://192.168.50.11:3001', cta: 'Abrir' },
-  { tag: 'DOCKER', title: 'Portainer', body: 'Administración de contenedores mediante HTTPS.', href: 'https://192.168.50.11:9443', cta: 'Abrir' },
-  { tag: 'RECURSOS', title: 'Glances', body: 'Estado de los recursos del servidor.', href: 'http://192.168.50.11:61208', cta: 'Abrir' },
+  { tag: 'DISPONIBILIDAD', title: 'Uptime Kuma', body: 'Panel de monitoreo de disponibilidad en la LAN por HTTPS.', href: 'https://kuma.minayao.site', cta: 'Abrir' },
+  { tag: 'DOCKER', title: 'Portainer', body: 'Administración de contenedores mediante HTTPS.', href: 'https://port.minayao.site', cta: 'Abrir' },
+  { tag: 'RECURSOS', title: 'Glances', body: 'Estado de los recursos del servidor por HTTPS.', href: 'https://glances.minayao.site', cta: 'Abrir' },
 ];
