@@ -1,5 +1,5 @@
 ---
-import { inventory } from '../data/platform';
+import { inventory, serverSnapshot } from '../data/platform';
 ---
 
 <section id="actual" class="mb-[47px] max-sm:mb-9">
@@ -10,7 +10,7 @@ import { inventory } from '../data/platform';
       </div>
       <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px] max-sm:text-[24px]">Lo que existe hoy</h2>
     </div>
-    <span class="text-[9px] text-muted max-sm:mt-2.5 max-sm:block">Actualizado: 1 oct 2026 · instantánea manual</span>
+    <span class="text-[9px] text-muted max-sm:mt-2.5 max-sm:block">Actualizado: {serverSnapshot.shortDate} · {serverSnapshot.time} Santiago · instantánea manual</span>
   </div>
 
   {
@@ -39,7 +39,9 @@ import { inventory } from '../data/platform';
     <p class="m-0 text-[10px] leading-[1.8] max-sm:text-[11px]">
       <strong class="font-semibold text-[#4c6256]">Servicios verificados.</strong>
       El inventario presenta únicamente aplicaciones instaladas. Los tres componentes de monitoreo
-      están activos y conservan sus datos. Esta página es una instantánea manual del servidor.
+      están activos y conservan sus datos. Keycloak y su PostgreSQL están saludables; el realm
+      educacion responde por HTTPS. Moodle y LRS también están activos, con sus bases independientes.
+      Esta página es una instantánea manual del servidor.
     </p>
   </div>
 </section>

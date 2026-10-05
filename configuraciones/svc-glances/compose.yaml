@@ -5,10 +5,10 @@ services:
     container_name: glances
     restart: unless-stopped
     pid: host
-    ports:
-      - "192.168.50.11:61208:61208"
+    network_mode: host
     environment:
-      GLANCES_OPT: -w
+      GLANCES_OPT: -w -B 192.168.50.11 --disable-check-update --disable-config-exec
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /etc/os-release:/etc/os-release:ro
+      - /srv/plataforma/datos:/host/datos:ro

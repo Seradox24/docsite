@@ -1,0 +1,20 @@
+[Unit]
+Description=Collect sanitized Kuma and Glances telemetry for documentation
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=docsite-monitor
+Group=docsite-monitor
+LoadCredential=config:/srv/plataforma/secretos/servicios/svc-docsite-monitor.json
+ExecStart=/usr/bin/python3 /usr/local/lib/docsite-monitor/collect.py --config %d/config --output /var/lib/docsite-monitor/public/status.json --state /var/lib/docsite-monitor/state/snapshot.json
+TimeoutStartSec=40
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/docsite-monitor
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+

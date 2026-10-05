@@ -1,42 +1,60 @@
 ---
 import { services } from '../data/platform';
 import CopyLink from './react/CopyLink';
+import ArchitectureReference from './ArchitectureReference.astro';
+
+const groups = [
+  { title: 'Aprendizaje y registros', tags: ['APRENDIZAJE', 'REGISTROS xAPI'], body: 'Plataforma educativa y almacenamiento de registros xAPI.' },
+  { title: 'Autenticación e identidad', tags: ['AUTENTICACIÓN'], body: 'Gestión central de usuarios y acceso a las aplicaciones.' },
+  { title: 'Monitoreo y administración', tags: ['DISPONIBILIDAD', 'DOCKER', 'RECURSOS'], body: 'Disponibilidad, contenedores y recursos del servidor.' },
+  { title: 'Documentación y arquitectura', tags: ['DOCUMENTACIÓN', 'ARQUITECTURA'], body: 'Referencias para conocer y mantener la plataforma.' },
+  { title: 'Sitio principal', tags: ['POR DEFINIR'], body: 'Un espacio con su próximo propósito por definir.' },
+];
+const images: Record<string, string> = {
+  APRENDIZAJE: 'moodle',
+  'REGISTROS xAPI': 'lrs',
+  AUTENTICACIÓN: 'keycloak',
+  DISPONIBILIDAD: 'uptime-kuma',
+  DOCKER: 'portainer',
+  RECURSOS: 'glances',
+  DOCUMENTACIÓN: 'documentation',
+  ARQUITECTURA: 'architecture',
+  'POR DEFINIR': 'main-site',
+};
 ---
 
 <section id="servicios" class="mb-[47px] max-sm:mb-9">
   <div class="mb-[23px] flex items-end justify-between gap-5 max-sm:mb-[18px] max-sm:block">
     <div>
-      <div class="font-mono text-[10px] font-semibold tracking-[1.5px] text-brand max-sm:text-[8px]">
-        04 / SERVICIOS
-      </div>
+      <div class="font-mono text-[10px] font-semibold tracking-[1.5px] text-brand max-sm:text-[8px]">04 / SERVICIOS</div>
       <h2 class="mb-0 mt-[7px] text-[26px] font-semibold tracking-[-0.8px] max-sm:text-[24px]">Servicios publicados</h2>
     </div>
-    <p class="m-0 text-right text-[11px] text-muted max-sm:mt-2 max-sm:text-left">Sitios HTTPS y paneles de monitoreo de la LAN.</p>
+    <p class="m-0 text-right text-[11px] text-muted max-sm:mt-2 max-sm:text-left">Accesos agrupados según su función.</p>
   </div>
-
-  {
-    services.map((s) => (
-      <div class="flex items-center gap-[27px] border-b border-line py-[23px] max-lg:gap-[15px] max-sm:grid max-sm:grid-cols-[1fr_auto] max-sm:gap-3">
-        <div class="whitespace-nowrap text-[10px] max-sm:col-span-2">
-          <span class="status-dot"></span>
-          <strong>{s.tag}</strong>
+  <div class="space-y-7">
+    {groups.map((group, index) => (
+      <section aria-labelledby={`service-group-${index}`}>
+        <div class="mb-3">
+          <h3 id={`service-group-${index}`} class="text-[14px] font-semibold">{group.title}</h3>
+          <p class="mt-1 text-[11px] text-muted">{group.body}</p>
         </div>
-        <div>
-          <h3 class="mb-[3px] text-[12px] font-semibold">
-            <a class="hover:text-brand" href={s.href}>{s.title}</a>
-          </h3>
-          <p class="m-0 text-[10px] text-muted max-sm:text-[11px]">{s.body}</p>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {services.filter((s) => group.tags.includes(s.tag)).map((s) => (
+            <article class:list={['flex min-w-0 flex-col rounded-[9px] border bg-white p-5 transition-colors hover:border-[#a8c8b9]', s.tag === 'POR DEFINIR' ? 'border-[#ded5bf]' : 'border-line']}>
+              {s.tag === 'ARQUITECTURA' ? <ArchitectureReference /> : <div class="mb-4 flex h-[76px] items-center justify-center rounded-md border border-line bg-paper">
+                <img src={`/images/services/${images[s.tag]}.svg`} alt="" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 object-contain" />
+              </div>}
+              <span class:list={['mb-4 self-start rounded px-2 py-1 font-mono text-[9px] font-semibold tracking-[0.6px]', s.tag === 'POR DEFINIR' ? 'bg-[#f5eddb] text-[#866321]' : 'bg-[#e8f2eb] text-brand']}>{s.tag}</span>
+              <h4 class="mb-2 text-[16px] font-semibold tracking-[-0.3px]"><a class="hover:text-brand" href={s.href}>{s.title}</a></h4>
+              <p class="mb-5 text-[12px] leading-[1.75] text-muted">{s.body}</p>
+              <div class="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+                <a class="text-[11px] font-semibold text-brand hover:underline" href={s.href}>{s.cta} <span aria-hidden="true">{s.href.startsWith('#') ? '↑' : '↗'}</span></a>
+                <CopyLink client:visible url={s.href.startsWith('#') ? `https://doc.minayao.site/${s.href}` : s.href.startsWith('/') ? `https://doc.minayao.site${s.href}` : s.href} />
+              </div>
+            </article>
+          ))}
         </div>
-        <div class="ml-auto flex items-center gap-2 max-sm:col-span-2">
-          <CopyLink client:visible url={s.href} />
-          <a
-            class="rounded bg-[#e1efe4] px-[7px] py-1 font-mono text-[8px] text-[#087055] transition-colors hover:bg-[#d3e7da]"
-            href={s.href}
-          >
-            {s.cta.toUpperCase()} ↗
-          </a>
-        </div>
-      </div>
-    ))
-  }
+      </section>
+    ))}
+  </div>
 </section>

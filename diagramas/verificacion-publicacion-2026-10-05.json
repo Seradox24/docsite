@@ -1,0 +1,183 @@
+{
+  "release": "/srv/plataforma/documentacion/releases/release-10436d7aec2f43bd9bdcc6226eaf942d",
+  "date": "2026-10-05",
+  "checkedFiles": 25,
+  "passed": true,
+  "checks": [
+    {
+      "path": "arquitectura.html",
+      "url": "https://doc.minayao.site/arquitectura.html",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "favicon.ico",
+      "url": "https://doc.minayao.site/favicon.ico",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "favicon.svg",
+      "url": "https://doc.minayao.site/favicon.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "index.html",
+      "url": "https://doc.minayao.site/",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "arquitectura/index.html",
+      "url": "https://doc.minayao.site/arquitectura/",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "diagramas/archify/autenticacion.html",
+      "url": "https://doc.minayao.site/diagramas/archify/autenticacion.html",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "diagramas/archify/lrs.html",
+      "url": "https://doc.minayao.site/diagramas/archify/lrs.html",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "diagramas/archify/moodle.html",
+      "url": "https://doc.minayao.site/diagramas/archify/moodle.html",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "diagramas/archify/operacion-monitoreo.html",
+      "url": "https://doc.minayao.site/diagramas/archify/operacion-monitoreo.html",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "diagramas/archify/vista-general.html",
+      "url": "https://doc.minayao.site/diagramas/archify/vista-general.html",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/architecture/server-overview.png",
+      "url": "https://doc.minayao.site/images/architecture/server-overview.png",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/architecture.svg",
+      "url": "https://doc.minayao.site/images/services/architecture.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/documentation.svg",
+      "url": "https://doc.minayao.site/images/services/documentation.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/glances.svg",
+      "url": "https://doc.minayao.site/images/services/glances.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/keycloak.svg",
+      "url": "https://doc.minayao.site/images/services/keycloak.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/lrs.svg",
+      "url": "https://doc.minayao.site/images/services/lrs.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/main-site.svg",
+      "url": "https://doc.minayao.site/images/services/main-site.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/moodle.svg",
+      "url": "https://doc.minayao.site/images/services/moodle.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/portainer.svg",
+      "url": "https://doc.minayao.site/images/services/portainer.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "images/services/uptime-kuma.svg",
+      "url": "https://doc.minayao.site/images/services/uptime-kuma.svg",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "infraestructura/tls/index.html",
+      "url": "https://doc.minayao.site/infraestructura/tls/",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "_astro/BaseLayout.VtGeBiSH.css",
+      "url": "https://doc.minayao.site/_astro/BaseLayout.VtGeBiSH.css",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "_astro/client.CLhIxG29.js",
+      "url": "https://doc.minayao.site/_astro/client.CLhIxG29.js",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "_astro/CopyLink.BBKl6BN8.js",
+      "url": "https://doc.minayao.site/_astro/CopyLink.BBKl6BN8.js",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    },
+    {
+      "path": "_astro/react.DJY1zw8Z.js",
+      "url": "https://doc.minayao.site/_astro/react.DJY1zw8Z.js",
+      "remoteFileMatches": true,
+      "httpsMatches": true,
+      "curlExit": 0
+    }
+  ]
+}

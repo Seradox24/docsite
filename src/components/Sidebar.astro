@@ -28,9 +28,11 @@ import { nav } from '../data/platform';
       nav.map((item, i) => (
         <a
           href={item.href}
+          data-section-link
+          aria-current={i === 0 ? 'location' : undefined}
           class:list={[
             'rounded-md px-2.5 py-3 text-[12px] font-[550] transition-colors max-lg:px-2 max-lg:py-2 max-lg:text-[11px] max-sm:px-[7px] max-sm:text-[10px]',
-            i === 0 ? 'bg-activenav text-[#126248]' : 'hover:bg-[#e0e9e2]',
+            'hover:bg-[#e0e9e2] aria-[current=location]:bg-activenav aria-[current=location]:text-[#126248]',
           ]}
         >
           <span class="mr-2.5 font-mono text-[10px] text-[#73857d] max-lg:hidden">{item.index}</span>
@@ -40,11 +42,69 @@ import { nav } from '../data/platform';
     }
   </nav>
 
+  <a href="/arquitectura/" class="mx-2.5 mt-4 flex items-center justify-between rounded-md border border-line bg-white px-3 py-3 text-[11px] font-semibold text-brand hover:bg-activenav">
+    Diagramas de arquitectura <span aria-hidden="true">↗</span>
+  </a>
+
+  <a href="/infraestructura/tls/" class="mx-2.5 mt-2 flex items-center justify-between rounded-md border border-line bg-white px-3 py-3 text-[11px] font-semibold text-brand hover:bg-activenav">
+    TLS y certificados <span aria-hidden="true">↗</span>
+  </a>
+
+  <a href="/monitoreo/" class="mx-2.5 mt-2 flex items-center justify-between rounded-md border border-line bg-white px-3 py-3 text-[11px] font-semibold text-brand hover:bg-activenav">
+    Monitoreo del servidor <span aria-hidden="true">↗</span>
+  </a>
+
   <div class="mt-auto hidden border-t border-[#d1ded5] px-2.5 pt-5 text-[11px] font-semibold lg:block">
     <span class="status-dot"></span> Documentación disponible
     <p class="mb-6 mt-1 font-normal leading-[1.7] text-muted">
-      Sitios y monitoreo del servidor actual.
+      Aprendizaje, identidad y operación.
     </p>
     <span class="font-mono text-[9px] tracking-[1px] text-[#6b8078]">MOODLENEWEN · 192.168.50.11</span>
   </div>
 </aside>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section-link]'));
+  const sections = links.flatMap((link) => {
+    const section = document.getElementById(link.hash.slice(1));
+    return section ? [{ link, section }] : [];
+  });
+
+  function activate(link: HTMLAnchorElement) {
+    links.forEach((item) => {
+      if (item === link) item.setAttribute('aria-current', 'location');
+      else item.removeAttribute('aria-current');
+    });
+  }
+
+  function updateFromScroll() {
+    if (!sections.length) return;
+    const marker = Math.min(160, window.innerHeight * 0.25);
+    let active = sections[0];
+    for (const entry of sections) {
+      if (entry.section.getBoundingClientRect().top <= marker) active = entry;
+    }
+    // The last section can be too short to reach the marker.
+    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+      active = sections[sections.length - 1];
+    }
+    activate(active.link);
+  }
+
+  let scheduled = false;
+  function scheduleUpdate() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      scheduled = false;
+      updateFromScroll();
+    });
+  }
+
+  links.forEach((link) => link.addEventListener('click', () => activate(link)));
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('hashchange', scheduleUpdate);
+  window.addEventListener('pageshow', scheduleUpdate);
+  updateFromScroll();
+</script>

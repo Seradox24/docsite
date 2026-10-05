@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { architectureDiagrams as diagrams } from '../../data/architecture';
+import ArchitectureDiagram from '../../components/ArchitectureDiagram.astro';
+import { serverSnapshot } from '../../data/platform';
+---
+
+<BaseLayout title="Arquitectura del servidor · moodlenewen" description="Diagramas interactivos del servidor LAN: Moodle, LRS, Keycloak, bases de datos y paneles de operación. Estado auditado el 2 de octubre de 2026 a las 14:41 de Santiago.">
+  <header class="border-b border-line bg-sidebar">
+    <div class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-6 py-5 sm:px-10">
+      <a href="/" class="flex items-center gap-3 font-semibold">
+        <span class="grid h-9 w-9 place-content-center rounded-lg bg-ink text-xl text-white" aria-hidden="true">P<span class="text-[#6ed7a7]">·</span></span>
+        <span>Plataforma <span class="block text-[10px] font-normal text-muted">Servidor actual · LAN</span></span>
+      </a>
+      <nav aria-label="Navegación principal" class="flex items-center gap-5 text-[12px]">
+        <a href="/" class="hover:text-brand">Documentación</a>
+        <a href="/monitoreo/" class="hover:text-brand">Monitoreo</a>
+        <a href="/infraestructura/tls/" class="hover:text-brand">TLS y certificados</a>
+        <a href="/arquitectura/" aria-current="page" class="rounded-md bg-activenav px-3 py-2 font-semibold text-brand">Arquitectura</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" class="mx-auto max-w-[1440px] px-5 pb-10 sm:px-10">
+    <section class="py-10 sm:py-12" aria-labelledby="architecture-title">
+      <p class="mb-3 font-mono text-[10px] font-semibold tracking-[1.5px] text-brand">ARQUITECTURA / ESTADO ACTUAL</p>
+      <div class="flex flex-wrap items-end justify-between gap-5">
+        <div class="max-w-[720px]">
+          <h1 id="architecture-title" class="mb-3 text-[clamp(30px,4vw,46px)] font-semibold leading-tight tracking-[-1.5px]">El servidor, de un vistazo.</h1>
+          <p class="text-[14px] leading-7 text-muted">Explora cómo se publican los servicios de <strong class="font-semibold text-ink">moodlenewen</strong>, dónde viven sus datos y qué componentes trabajan juntos.</p>
+        </div>
+        <div class="rounded-lg border border-line bg-white px-4 py-3 text-[11px] text-muted">
+          <span class="block font-semibold text-ink">Estado auditado · 2 oct 2026</span>
+          {serverSnapshot.time} · Santiago · 192.168.50.11
+        </div>
+      </div>
+      <dl class="mt-7 grid grid-cols-3 gap-3 rounded-lg border border-line bg-white p-5">
+        {[
+          { value: String(serverSnapshot.httpsSites).padStart(2, '0'), label: 'Dominios HTTPS' },
+          { value: String(serverSnapshot.activeContainers).padStart(2, '0'), label: 'Contenedores activos' },
+          { value: String(serverSnapshot.dockerVolumes).padStart(2, '0'), label: 'Volúmenes Docker' },
+        ].map((metric) => (
+          <div>
+            <dt class="text-[10px] text-muted sm:text-[12px]">{metric.label}</dt>
+            <dd class="mt-1 font-mono text-[24px] font-semibold text-brand">{metric.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="mt-3 text-[11px] leading-6 text-muted">Instantánea manual, verificada por SSH. Moodle y LRS están activos; microservicios sigue vacío. PostgreSQL del LRS usa además un directorio persistente en datos/servicios/svc-lrsql/postgres. Los diagramas muestran las conexiones comprobadas.</p>
+    </section>
+
+    <nav aria-label="Elegir un diagrama" class="mb-10 grid gap-3 md:grid-cols-3">
+      {diagrams.map((diagram) => (
+        <a href={`#${diagram.id}`} class="flex gap-4 rounded-lg border border-line bg-white p-5 transition-colors hover:border-brand hover:bg-sidebar">
+          <img src={`/images/services/${diagram.icon}.svg`} alt="" width="36" height="36" class="h-9 w-9 shrink-0 object-contain" />
+          <div>
+            <span class="font-mono text-[9px] text-brand">{diagram.index} / DIAGRAMA</span>
+            <h2 class="mt-1 text-[15px] font-semibold">{diagram.title} <span aria-hidden="true">↓</span></h2>
+            <p class="mt-2 text-[11px] leading-5 text-muted">{diagram.description}</p>
+          </div>
+        </a>
+      ))}
+    </nav>
+
+    <div class="space-y-12">
+      {diagrams.map((diagram, index) => <ArchitectureDiagram diagram={diagram} eager={index === 0} />)}
+    </div>
+
+    <section id="lrs-almacenamiento" aria-labelledby="lrs-storage-title" class="mt-10 rounded-lg border border-line bg-white p-6 sm:p-8">
+      <p class="mb-3 font-mono text-[10px] font-semibold tracking-[1.5px] text-brand">LRS / PERSISTENCIA Y AISLAMIENTO</p>
+      <h2 id="lrs-storage-title" class="mb-4 text-[24px] font-semibold">Un PostgreSQL, un directorio de datos.</h2>
+      <p class="text-[13px] leading-7 text-muted">El único PostgreSQL del LRS se ejecuta en <code>yet-lrsql-postgres-1</code>, dentro de Docker. La caja del diagrama situada fuera de la red Docker representa archivos en el disco del host: <code class="break-all">/srv/plataforma/datos/servicios/svc-lrsql/postgres</code>. Ese directorio se monta en <code class="break-all">/var/lib/postgresql/data</code> dentro del contenedor mediante un <strong class="text-ink">bind mount</strong>. La carpeta no ejecuta un servicio PostgreSQL independiente.</p>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <article class="rounded-lg border border-line bg-sidebar p-5">
+          <h3 class="mb-2 text-[16px] font-semibold">Bind mount · configuración del LRS</h3>
+          <p class="text-[12px] leading-6 text-muted">El administrador elige una carpeta concreta del servidor. Los archivos permanecen en esa carpeta al recrear el contenedor, mientras se conserve el directorio.</p>
+        </article>
+        <article class="rounded-lg border border-line bg-sidebar p-5">
+          <h3 class="mb-2 text-[16px] font-semibold">Volumen Docker</h3>
+          <p class="text-[12px] leading-6 text-muted">Docker administra la ubicación del almacenamiento, que se referencia por nombre. También conserva los archivos al recrear el contenedor, mientras se conserve el volumen.</p>
+        </article>
+      </div>
+      <h3 class="mb-3 mt-6 text-[18px] font-semibold">Por qué no entra en conflicto</h3>
+      <p class="text-[13px] leading-7 text-muted">PostgreSQL del LRS utiliza el puerto 5432 dentro de su red Docker y no lo publica en el host, según la revisión del 5 de octubre de 2026. Otros contenedores pueden utilizar internamente 5432 en sus propias redes sin ocupar el mismo puerto del servidor. Su directorio de datos está dedicado al LRS.</p>
+      <p class="mt-3 text-[13px] leading-7 text-muted">Habría conflicto si dos servicios intentaran publicar la misma dirección y puerto del host, o si dos instancias PostgreSQL utilizaran simultáneamente el mismo directorio de datos. El almacenamiento persistente, tanto con bind mount como con volumen, no sustituye una copia de seguridad.</p>
+      <a href="#lrs" class="mt-5 inline-block text-[13px] font-semibold text-brand hover:underline">Volver al diagrama del LRS ↑</a>
+    </section>
+
+    <footer class="mt-12 flex flex-wrap justify-between gap-3 border-t border-line pt-5 text-[11px] text-muted">
+      <span>Diagramas elaborados con Archify · auditoría del 2 de octubre de 2026.</span>
+      <a href="/#servicios" class="font-semibold text-brand hover:underline">Volver a los servicios →</a>
+    </footer>
+  </main>
+</BaseLayout>
+
