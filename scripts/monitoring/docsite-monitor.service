@@ -17,4 +17,3 @@ ProtectSystem=strict
 ProtectHome=true
 ReadWritePaths=/var/lib/docsite-monitor
 RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
-
